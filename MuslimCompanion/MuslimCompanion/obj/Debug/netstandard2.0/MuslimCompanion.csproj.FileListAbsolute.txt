@@ -1,0 +1,12 @@
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csprojAssemblyReference.cache
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csproj.CoreCompileInputs.cache
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.AssemblyInfoInputs.cache
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.AssemblyInfo.cs
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.dll
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.pdb
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.deps.json
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.dll
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.pdb
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\XamlC.stamp
