@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using SQLite;
 using MuslimCompanion.Model;
 using System.Threading;
+using MuslimCompanion.Controls;
+using MuslimCompanion.Core;
 
 namespace MuslimCompanion
 {
@@ -15,50 +17,140 @@ namespace MuslimCompanion
 
         public int counter = 1;
 
-        public MainPage()
+        List<Quran> quran;
+
+        public MainPage(int selectedSura = 1)
         {
+
             InitializeComponent();
+
+            quran = GeneralManager.conn.Table<Quran>().ToList();
+
+            LoadSura(selectedSura);
+
+            //TestDB();
+
         }
+
+        SelectableLabel sl;
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
+            
         }
 
-        int tempSurahNumber = 0;
+        void SetupLayout()
+        {
+
+
+
+        }
+
+        int tempSurahNumber = 1;
         int tempAyahNumber = 1;
 
         public void TestDB()
         {
 
-            label1.Text = "";
+            SetupLayout();
 
-            SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
+            tempAyahNumber = 1;
 
-            var quran = conn.Table<Quran>().ToList();
+            sl.Text = "";
 
-            for (int i=0; i<15; i++)
+            while (quran[counter].SuraID == tempSurahNumber)
             {
 
-                int surahNumber = quran[counter].SuraID;
+                tempSurahNumber = quran[counter].SuraID;
+
                 tempAyahNumber = quran[counter].VerseID;
-
-                if (surahNumber != tempSurahNumber)
-                {
-
-                    tempAyahNumber = 1;
-                    tempSurahNumber = surahNumber;
-
-                }
 
                 string textToAdd = quran[counter++].AyahText + " \uFD3F" + tempAyahNumber.ToString() + "\uFD3E ";
 
-                label1.Text += ConvertNumerals(textToAdd);
+                sl.Text += ConvertNumerals(textToAdd);
 
             }
 
-            label1.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
+            tempSurahNumber++;
+
+            sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
+
+        }
+
+        public void LoadSura(int suraNumber)
+        {
+
+            tempAyahNumber = 1;
+
+            tempSurahNumber = suraNumber;
+
+            SetupLayout();
+
+            sl = new SelectableLabel();
+            grid.Children.Add(sl);
+            Grid.SetRow(sl, 3);
+            Grid.SetColumn(sl, 1);
+            Grid.SetColumnSpan(sl, 5);
+
+            sl.Text = "";
+
+            List<Quran> sura = new List<Quran>();
+
+            //Still needs optimization. Maybe increment i, and stop checking after finding first Ayah that is in another sura? We'll see.
+
+            bool firstAyah = true;
+
+            foreach (Quran qr in quran)
+            {
+
+                if (qr.SuraID == tempSurahNumber)
+                {
+
+                    if (!firstAyah)
+                    {
+
+                        sura.Add(qr);
+
+                    }
+
+                    else
+                    {
+
+                        if (qr.AyahText.Contains("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"))
+                        {
+
+                            Quran qrr = qr;
+
+                            qrr.AyahText = qr.AyahText.Replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "");
+
+                            sura.Add(qrr);
+
+                        }
+
+                        
+
+                    }
+
+                    firstAyah = false;
+
+                }
+
+            }
+
+            int i = 0;
+
+            foreach(Quran qr in sura)
+            {
+
+                string textToAdd = sura[i++].AyahText + " \uFD3F" + tempAyahNumber++.ToString() + "\uFD3E ";
+
+                sl.Text += ConvertNumerals(textToAdd);
+
+            }
+
+            sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
 
         }
 
@@ -72,7 +164,7 @@ namespace MuslimCompanion
         public string ConvertNumerals( string input)
         {
 
-                return input.Replace('0', '\u0661')
+                return input.Replace('0', '\u0660')
                         .Replace('1', '\u0661')
                         .Replace('2', '\u0662')
                         .Replace('3', '\u0663')

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Devices>
-  <Device id="0123456789ABCDEF">
-    <ResultingAbi>armeabi-v7a</ResultingAbi>
-    <SdkVersion>22</SdkVersion>
+  <Device id="b3ad3b7">
+    <ResultingAbi>arm64-v8a</ResultingAbi>
+    <SdkVersion>28</SdkVersion>
   </Device>
   <Device id="169.254.76.233:5555">
     <ResultingAbi>x86</ResultingAbi>

@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
+using MuslimCompanion.Core;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MuslimCompanion
@@ -16,7 +17,7 @@ namespace MuslimCompanion
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new ChooseSura());
 
         }
 
@@ -25,7 +26,10 @@ namespace MuslimCompanion
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            if (GeneralManager.conn == null)
+                GeneralManager.InitConnection();
+
+            MainPage = new NavigationPage(new ChooseSura());
 
             DatabaseLocation = databaseLocation;
 

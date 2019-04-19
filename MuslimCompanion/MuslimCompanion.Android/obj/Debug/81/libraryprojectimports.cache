@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
+    <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\0\jl\formsviewgroup.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\10\jl\arch-lifecycle-common.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\11\jl\bin\classes.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\12\jl\bin\classes.jar</Jar>
@@ -11,7 +12,6 @@
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\17\jl\bin\classes.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\18\jl\bin\classes.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\19\jl\bin\classes.jar</Jar>
-    <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\2\jl\formsviewgroup.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\20\jl\bin\classes.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\21\jl\bin\classes.jar</Jar>
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\22\jl\bin\classes.jar</Jar>
@@ -23,11 +23,11 @@
     <Jar>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\9\jl\arch-core-common.jar</Jar>
   </Jars>
   <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\3\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\4\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\5\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\6\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\7\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\8\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\14\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\17\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\19\jl\res</ResolvedResourceDirectory>
@@ -39,20 +39,20 @@
     <ResolvedResourceDirectory>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\26\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\3\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\81\lp\4\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\81\lp\5\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\81\lp\6\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\81\lp\7\jl\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\81\lp\8\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\81\lp\21\jl\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\3.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\4.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\5.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\6.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\7.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\8.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\14.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\17.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\lp\19.stamp</ResolvedResourceDirectoryStamp>

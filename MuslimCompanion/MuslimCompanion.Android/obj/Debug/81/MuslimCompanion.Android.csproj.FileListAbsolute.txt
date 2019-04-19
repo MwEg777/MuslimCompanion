@@ -34,6 +34,8 @@ D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\D
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\R.cs.flag
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\R.txt
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\uploadflags.txt
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\res\drawable-xxxhdpi\quranframe.png
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\res\drawable-xxxhdpi\basmalah.png
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\FormsViewGroup.pdb
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Mono.Android.pdb
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\mscorlib.pdb
@@ -102,7 +104,6 @@ D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\D
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
-D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\res\drawable-xxxhdpi\quranframe.png
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.dll
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\MuslimCompanion.dll.mdb
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\MuslimCompanion.dll.mdb
