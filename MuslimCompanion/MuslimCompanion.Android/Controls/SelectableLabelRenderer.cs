@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Text.Method;
@@ -28,7 +29,7 @@ namespace MuslimCompanion.Droid.Controls
         protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
-            
+
             if (Control == null) 
                 return;
             
@@ -38,10 +39,21 @@ namespace MuslimCompanion.Droid.Controls
             Control.SetTextIsSelectable(true);
             Control.CustomSelectionActionModeCallback = new CustomSelectionActionModeCallback();
             Control.CustomInsertionActionModeCallback = new CustomInsertionActionModeCallback();
+
+            if (GlobalVar.Get<bool>("SEARCHING_AYAH", true))
+                SelectPartOfText(GlobalVar.Get<int>("START_INDEX", 0));
+
         }
 
 
+        public void SelectPartOfText(int startIndex)
+        {
 
+            Control.RequestFocus();
+            Control.SetSelection(startIndex);
+            GlobalVar.Set("SEARCHING_AYAH", false);
+
+        }
         
 
         private class CustomInsertionActionModeCallback : Java.Lang.Object, ActionMode.ICallback

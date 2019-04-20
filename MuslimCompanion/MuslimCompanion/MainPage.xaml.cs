@@ -9,6 +9,7 @@ using MuslimCompanion.Model;
 using System.Threading;
 using MuslimCompanion.Controls;
 using MuslimCompanion.Core;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace MuslimCompanion
 {
@@ -19,14 +20,17 @@ namespace MuslimCompanion
 
         List<Quran> quran;
 
-        public MainPage(int selectedSura = 1)
+        public MainPage(int selectedSura = 1, int mode = 0, AyahSearchResult asr = null) // 0 = Normal sura mode, 1 = Search Ayah mode
         {
 
             InitializeComponent();
 
             quran = GeneralManager.conn.Table<Quran>().ToList();
 
-            LoadSura(selectedSura);
+            if (mode == 1 && asr != null)
+                LoadSura(asr.SuraID, mode, asr);
+            else
+                LoadSura(selectedSura, mode, asr);
 
             //TestDB();
 
@@ -51,35 +55,20 @@ namespace MuslimCompanion
         int tempSurahNumber = 1;
         int tempAyahNumber = 1;
 
-        public void TestDB()
+        public void MarkPartOfAyah(int AyahNumber, List<Quran> Sura)
         {
 
-            SetupLayout();
+            GlobalVar.Set("SEARCHING_AYAH", true);
 
-            tempAyahNumber = 1;
+            int AyahIndex = 0;
 
-            sl.Text = "";
+            AyahIndex = sl.Text.IndexOf(Sura[AyahNumber].AyahText);
 
-            while (quran[counter].SuraID == tempSurahNumber)
-            {
-
-                tempSurahNumber = quran[counter].SuraID;
-
-                tempAyahNumber = quran[counter].VerseID;
-
-                string textToAdd = quran[counter++].AyahText + " \uFD3F" + tempAyahNumber.ToString() + "\uFD3E ";
-
-                sl.Text += ConvertNumerals(textToAdd);
-
-            }
-
-            tempSurahNumber++;
-
-            sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
+            GlobalVar.Set("START_INDEX", AyahIndex);
 
         }
 
-        public void LoadSura(int suraNumber)
+        public void LoadSura(int suraNumber, int mode = 0, AyahSearchResult asr = null)
         {
 
             tempAyahNumber = 1;
@@ -152,12 +141,12 @@ namespace MuslimCompanion
 
             sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
 
-        }
+            if (mode == 1 && asr != null)
+            {
 
-        private void Button1_Clicked(object sender, EventArgs e)
-        {
+                MarkPartOfAyah(asr.AyahID, sura);
 
-            TestDB();
+            }
 
         }
 
