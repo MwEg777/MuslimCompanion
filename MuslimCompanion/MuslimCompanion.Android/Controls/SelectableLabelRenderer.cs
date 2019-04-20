@@ -41,17 +41,36 @@ namespace MuslimCompanion.Droid.Controls
             Control.CustomInsertionActionModeCallback = new CustomInsertionActionModeCallback();
 
             if (GlobalVar.Get<bool>("SEARCHING_AYAH", true))
-                SelectPartOfText(GlobalVar.Get<int>("START_INDEX", 0));
+                SelectPartOfText();
 
         }
 
 
-        public void SelectPartOfText(int startIndex)
+        public void SelectPartOfText()
         {
 
+            if (!GlobalVar.Get<bool>("SEARCHING_AYAH_READY", false))
+            {
+
+                TryAgain();
+                return;
+
+            }
+
             Control.RequestFocus();
-            Control.SetSelection(startIndex);
+            int startIndex = GlobalVar.Get<int>("START_INDEX", 0);
+            int endIndex = GlobalVar.Get<int>("END_INDEX", 0);
+            Control.SetSelection(startIndex, endIndex);
             GlobalVar.Set("SEARCHING_AYAH", false);
+            GlobalVar.Set("SEARCHING_AYAH_READY", false);
+
+        }
+
+        async void TryAgain()
+        {
+
+            await Task.Delay(100);
+            SelectPartOfText();
 
         }
         

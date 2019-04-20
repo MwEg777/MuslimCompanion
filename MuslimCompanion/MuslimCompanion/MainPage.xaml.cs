@@ -60,12 +60,6 @@ namespace MuslimCompanion
 
             GlobalVar.Set("SEARCHING_AYAH", true);
 
-            int AyahIndex = 0;
-
-            AyahIndex = sl.Text.IndexOf(Sura[AyahNumber].AyahText);
-
-            GlobalVar.Set("START_INDEX", AyahIndex);
-
         }
 
         public void LoadSura(int suraNumber, int mode = 0, AyahSearchResult asr = null)
@@ -128,6 +122,13 @@ namespace MuslimCompanion
 
             }
 
+            if (mode == 1 && asr != null)
+            {
+
+                MarkPartOfAyah(asr.AyahID, sura);
+
+            }
+
             int i = 0;
 
             foreach(Quran qr in sura)
@@ -139,14 +140,19 @@ namespace MuslimCompanion
 
             }
 
+            int AyahIndex = 0, AyahEndIndex = 0;
+
+            AyahIndex = sl.Text.IndexOf(sura[asr.AyahID - 1].AyahText);
+
+            AyahEndIndex = sl.Text.IndexOf(sura[asr.AyahID].AyahText);
+
+            GlobalVar.Set("START_INDEX", AyahIndex);
+
+            GlobalVar.Set("END_INDEX", AyahEndIndex);
+
             sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
 
-            if (mode == 1 && asr != null)
-            {
-
-                MarkPartOfAyah(asr.AyahID, sura);
-
-            }
+            GlobalVar.Set("SEARCHING_AYAH_READY", true);
 
         }
 

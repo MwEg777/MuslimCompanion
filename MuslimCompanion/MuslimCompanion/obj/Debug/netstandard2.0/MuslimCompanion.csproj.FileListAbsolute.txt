@@ -11,3 +11,4 @@ D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\net
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\XamlC.stamp
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\ChooseSura.xaml.g.cs
 D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csprojAssemblyReference.cache
+D:\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\Search.xaml.g.cs

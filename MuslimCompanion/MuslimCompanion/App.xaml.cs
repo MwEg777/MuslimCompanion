@@ -17,7 +17,7 @@ namespace MuslimCompanion
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new ChooseSura());
+            MainPage = new NavigationPage(new Search());
 
         }
 
@@ -29,7 +29,7 @@ namespace MuslimCompanion
             if (GeneralManager.conn == null)
                 GeneralManager.InitConnection();
 
-            MainPage = new NavigationPage(new ChooseSura());
+            MainPage = new NavigationPage(new Search());
 
             DatabaseLocation = databaseLocation;
 
