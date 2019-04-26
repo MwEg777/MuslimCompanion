@@ -11,7 +11,6 @@ public static class GlobalVar
     {
         if (dataStorage.ContainsKey(varName))
             return (T)dataStorage[varName];
-
         return defaultValue;
     }
 

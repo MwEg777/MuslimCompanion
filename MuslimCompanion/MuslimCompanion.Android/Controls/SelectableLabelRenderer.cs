@@ -15,8 +15,14 @@ using MuslimCompanion.Controls;
 using MuslimCompanion.Droid.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using static MuslimCompanion.Core.GeneralManager;
+
+
 
 [assembly: ExportRenderer(typeof(SelectableLabel), typeof(SelectableLabelRenderer))]
+[assembly: Dependency(typeof(SelectableLabel))]
+[assembly: Dependency(typeof(SelectableLabelRenderer))]
+[assembly: Dependency(typeof(SelectableInterfaceImplementation))]
 
 namespace MuslimCompanion.Droid.Controls
 {
@@ -24,7 +30,12 @@ namespace MuslimCompanion.Droid.Controls
     {
         public SelectableLabelRenderer(Context context) : base(context)
         {
+
+            
+
         }
+
+        //public SelectableInterface si;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
@@ -32,7 +43,9 @@ namespace MuslimCompanion.Droid.Controls
 
             if (Control == null) 
                 return;
-            
+
+            GlobalVar.Set("activeControl", Control);
+
             Control.Background = null;
             Control.SetPadding(0, 0, 0, 0);
             Control.ShowSoftInputOnFocus = false;
@@ -40,41 +53,10 @@ namespace MuslimCompanion.Droid.Controls
             Control.CustomSelectionActionModeCallback = new CustomSelectionActionModeCallback();
             Control.CustomInsertionActionModeCallback = new CustomInsertionActionModeCallback();
 
-            if (GlobalVar.Get<bool>("SEARCHING_AYAH", true))
-                SelectPartOfText();
-
         }
 
 
-        public void SelectPartOfText()
-        {
-
-            if (!GlobalVar.Get<bool>("SEARCHING_AYAH_READY", false))
-            {
-
-                TryAgain();
-                return;
-
-            }
-
-            Control.RequestFocus();
-            int startIndex = GlobalVar.Get<int>("START_INDEX", 0);
-            int endIndex = GlobalVar.Get<int>("END_INDEX", 0);
-            Control.SetSelection(startIndex, endIndex);
-            GlobalVar.Set("SEARCHING_AYAH", false);
-            GlobalVar.Set("SEARCHING_AYAH_READY", false);
-
-        }
-
-        async void TryAgain()
-        {
-
-            await Task.Delay(100);
-            SelectPartOfText();
-
-        }
         
-
         private class CustomInsertionActionModeCallback : Java.Lang.Object, ActionMode.ICallback
         {
             public bool OnCreateActionMode(ActionMode mode, IMenu menu) => false;
@@ -115,6 +97,23 @@ namespace MuslimCompanion.Droid.Controls
                 return true;
             }
         }
+    }
+
+    public class SelectableInterfaceImplementation : ISelectableLabel
+    {
+
+        public void SelectPartOfText(int startIndex, int endIndex)
+        {
+            FormsEditText fet = GlobalVar.Get<FormsEditText>("activeControl");
+
+            if (fet == null)
+                return;
+
+            fet.RequestFocus();
+            fet.SetSelection(startIndex, endIndex);
+
+        }
+
     }
 
     public class CustomEditText : FormsEditText

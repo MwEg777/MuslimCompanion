@@ -1,5 +1,9 @@
 FormsViewGroup
 MuslimCompanion
+Plugin.CurrentActivity
+Plugin.Permissions
+Plugin.SimpleAudioPlayer.Abstractions
+Plugin.SimpleAudioPlayer
 SQLite-net
 SQLitePCLRaw.batteries_green
 SQLitePCLRaw.batteries_v2

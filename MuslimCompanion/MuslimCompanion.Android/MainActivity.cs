@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -7,6 +6,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.IO;
+using Plugin.Permissions;
+using Plugin.CurrentActivity;
+
 
 namespace MuslimCompanion.Droid
 {
@@ -24,6 +26,15 @@ namespace MuslimCompanion.Droid
             string dbPath = FileAccessHelper.GetLocalFilePath("quran.db");
 
             LoadApplication(new App(dbPath));
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 

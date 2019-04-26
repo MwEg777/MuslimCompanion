@@ -1,5 +1,7 @@
 ﻿using MuslimCompanion.Core;
 using MuslimCompanion.Model;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -44,6 +46,8 @@ namespace MuslimCompanion
 
             quran = GeneralManager.conn.Table<QuranNoTashkeel>().ToList();
 
+            ResultView.ItemTapped += Handle_ItemTapped;
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -55,6 +59,7 @@ namespace MuslimCompanion
                 SearchForAyah(AyahField.Text);
 
             }
+
 
         }
 
@@ -78,7 +83,7 @@ namespace MuslimCompanion
 
             }
 
-            ResultView.ItemTapped += Handle_ItemTapped;
+            
 
         }
 

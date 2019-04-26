@@ -12,26 +12,26 @@ namespace MuslimCompanion
 
         public static string DatabaseLocation;
 
-        public App()
-        {
+        //public App()
+        //{
 
-            InitializeComponent();
+        //    InitializeComponent();
 
-            MainPage = new NavigationPage(new Search());
+        //    MainPage = new NavigationPage(new Search());
 
-        }
+        //}
 
         public App(string databaseLocation)
         {
 
             InitializeComponent();
 
+            DatabaseLocation = databaseLocation;
+
             if (GeneralManager.conn == null)
                 GeneralManager.InitConnection();
 
-            MainPage = new NavigationPage(new Search());
-
-            DatabaseLocation = databaseLocation;
+            MainPage = new NavigationPage(new HomePage());
 
         }
 
