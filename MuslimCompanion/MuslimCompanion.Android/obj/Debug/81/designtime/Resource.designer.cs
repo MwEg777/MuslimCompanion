@@ -26,6 +26,7 @@ namespace MuslimCompanion.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::MuslimCompanion.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MuslimCompanion.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -2995,6 +2996,9 @@ namespace MuslimCompanion.Droid
 			
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
+			
+			// aapt resource value: 0x7F010004
+			public const int plugin_lc_smallicon = 2130771972;
 			
 			// aapt resource value: 0x7F010003
 			public const int QuranFrame = 2130771971;

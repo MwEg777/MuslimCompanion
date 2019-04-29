@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:MuslimCompanion"
              x:Class="MuslimCompanion.MainPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="DownloadSuraItem" Order="Secondary" Icon="Microsoft.png" Text="تحميل السورة" Priority="0" Clicked="DownloadSuraToolbarItem" />
+        <ToolbarItem Name="PlaySuraItem" Order="Secondary" Icon="Xamarin.png" Text="تشغيل السورة" Priority="1" Clicked="PlaySuraToolbarItem"/>
+        <ToolbarItem Name="ZoomInItem" Order="Primary" Icon="Xamarin.png" Text="+" Priority="1" Clicked="ZoomInToolbarItem"/>
+        <ToolbarItem Name="ZoomOutItem" Order="Primary" Icon="Xamarin.png" Text="-" Priority="1" Clicked="ZoomOutToolbarItem"/>
+
+    </ContentPage.ToolbarItems>
+
     <Grid x:Name="grid">
         <!-- Place new controls here -->
 

@@ -22,19 +22,56 @@ namespace MuslimCompanion
         public ObservableCollection<SuraItem> Items;
         List<suranames> sura;
         List<string> suraNames;
+        DataTemplate suraTemplate;
 
         public ChooseSura()
         {
-            InitializeComponent();
 
-            InitSuras();
+            InitializeComponent();
+            suraTemplate = new DataTemplate(() =>
+            {
+                var grid = new Grid();
+
+                var ayahCountLabel = new Label { VerticalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center };
+
+                var ayahIndexLabel = new Label { VerticalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center };
+
+                var suraNameLabel = new Label { HorizontalTextAlignment = TextAlignment.Start, VerticalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold, FontSize = 20 };
+
+                var suraDownloadedLabel = new Label { VerticalOptions = LayoutOptions.Center, FontSize = 15, HorizontalTextAlignment = TextAlignment.Center };
+
+                suraNameLabel.SetBinding(Label.TextProperty, "sname");
+
+                ayahCountLabel.SetBinding(Label.TextProperty, "scount");
+
+                ayahIndexLabel.SetBinding(Label.TextProperty, "sindex");
+
+                suraDownloadedLabel.SetBinding(Label.TextProperty, "sdownloaded");
+
+                suraDownloadedLabel.SetBinding(Label.TextColorProperty, "sdownloadcolor");
+
+                grid.Children.Add(ayahIndexLabel, 1, 0);
+
+                grid.Children.Add(ayahCountLabel, 2, 0);
+
+                grid.Children.Add(suraNameLabel, 3, 0);
+
+                grid.Children.Add(suraDownloadedLabel);
+
+                return new ViewCell { View = grid };
+
+            });
 
         }
 
-        async void InitSuras()
+        protected override void OnAppearing()
         {
+            base.OnAppearing();
+            InitSuras();
+        }
 
-            downloader.OnFileDownloaded += OnFileDownloaded;
+        async void InitSuras(int mode = 0) //0 means sort by sura number.  //1 means sort by sura name. //2 means sort by count of ayah
+        {
 
             if (conn == null)
                 InitConnection();
@@ -48,53 +85,62 @@ namespace MuslimCompanion
 
             sura = conn.Table<suranames>().ToList();
 
-            Items = new ObservableCollection<SuraItem>();
+            if (!GlobalVar.Get<bool>("initializedsuras", false)) { 
 
-            suraNames = new List<string>();
+                Items = new ObservableCollection<SuraItem>();
+
+                suraNames = new List<string>();
+
+            }
 
             for (int i = 0; i < 114; i++)
             {
 
-                Items.Add(new SuraItem { sname = sura[i].SuraName, sindex = (i+1).ToString(), scount = suraAyahCounts[i] });
-                suraNames.Add(sura[i].SuraName);
+                if (!GlobalVar.Get<bool>("initializedsuras", false)) { 
+
+                    SuraItem suraItemToAdd = new SuraItem { sname = sura[i].SuraName,
+                        sindex = (i + 1).ToString(),
+                        scount = suraAyahCounts[i].ToString(),
+                        sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها"),
+                        sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red)
+                    };
+
+                    Items.Add(suraItemToAdd);
+                    suraNames.Add(sura[i].SuraName);
+
+                }
+
+                else
+                { 
+
+                    Items[i].sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها");
+                    Items[i].sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red);
+
+                }
+
+                if (mode == 2)
+                {
+
+                    List<SuraItem> tempList = Items.ToList();
+                    tempList = tempList.OrderBy(o => int.Parse(o.scount)).ToList();
+                    Items = new ObservableCollection<SuraItem>(tempList);
+
+                }
+
+                else if (mode == 1)
+                {
+
+                    List<SuraItem> tempList = Items.ToList();
+                    tempList = tempList.OrderBy(o => o.sname).ToList();
+                    Items = new ObservableCollection<SuraItem>(tempList);
+
+                }
 
             }
 
-            var suraDataTemplate = new DataTemplate(() =>
-            {
-                var grid = new Grid();
+            GlobalVar.Set("initializedsuras", true);
 
-                var ayahCountLabel = new Label { VerticalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center };
-
-                var ayahIndexLabel = new Label { VerticalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center };
-
-                var suraNameLabel = new Label { HorizontalTextAlignment = TextAlignment.Start, VerticalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold , FontSize = 20};
-
-                var suraDownloadButton = new Button { VerticalOptions = LayoutOptions.Center, FontSize = 20 };
-
-                suraNameLabel.SetBinding(Label.TextProperty, "sname");
-
-                ayahCountLabel.SetBinding(Label.TextProperty, "scount");
-
-                ayahIndexLabel.SetBinding(Label.TextProperty, "sindex");
-
-                suraDownloadButton.SetValue(Button.TextProperty, "تحميل");
-
-                //suraDownloadButton.SetValue(Button.CommandProperty, "تحميل");
-
-                grid.Children.Add(ayahIndexLabel, 1, 0);
-
-                grid.Children.Add(ayahCountLabel, 2, 0);
-
-                grid.Children.Add(suraNameLabel, 3, 0);
-
-                grid.Children.Add(suraDownloadButton);
-
-                return new ViewCell { View = grid};
-
-            });
-
-            ListView lv = new ListView { ItemsSource = Items, ItemTemplate = suraDataTemplate, Margin = new Thickness(0, 20, 0, 0), };
+            ListView lv = new ListView { ItemsSource = Items, ItemTemplate = suraTemplate, Margin = new Thickness(0, 20, 0, 0), };
 
             lv.ItemTapped += Handle_ItemTapped;
 
@@ -114,7 +160,7 @@ namespace MuslimCompanion
 
             ayahIndexLabelName.Text = "رقم السورة";
 
-            suraDownloadButtonName.Text = "تحميل";
+            suraDownloadButtonName.Text = "حالة التحميل";
 
             gr.Children.Add(ayahIndexLabelName, 1, 0);
 
@@ -135,137 +181,8 @@ namespace MuslimCompanion
        
     }
 
-        public async void DownloadSura(int suraID)
-        {
 
-            int ayahCount = int.Parse(suraAyahCounts[suraID - 1]);
-
-            List<string> fileURLs = new List<string>();
-
-            for (int i=0; i<ayahCount; i++)
-            {
-
-                if (i >= 100)
-                {
-
-                    if (suraID >= 100)
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/" + suraID.ToString() + (i + 1).ToString() + ".mp3");
-                    else if (suraID >= 10)
-                        if (suraID >= 17)
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + (i + 1).ToString() + ".mp3");
-                        else
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + i.ToString() + ".mp3");
-                    else if (suraID >= 1)
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/00" + suraID.ToString() + i.ToString() + ".mp3");
-
-                }
-
-                else if (i >= 10)
-                {
-
-                    if (suraID >= 100)
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/" + suraID.ToString() + "0" + (i + 1).ToString() + ".mp3");
-                    else if (suraID >= 10)
-                        if (suraID >= 17)
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + "0" + (i + 1).ToString() + ".mp3");
-                        else
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + "0" + i.ToString() + ".mp3");
-                    else if (suraID >= 1)
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/00" + suraID.ToString() + "0" + i.ToString() + ".mp3");
-
-                }
-
-                else if (i >= 0)
-                {
-
-                    if (suraID >= 100)
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/" + suraID.ToString() + "00" + (i + 1).ToString() + ".mp3");
-                    else if (suraID >= 10)
-                        if (suraID >= 17)
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + "00" + (i+1).ToString() + ".mp3");
-                        else
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/0" + suraID.ToString() + "00" + i.ToString() + ".mp3");
-                    else if (suraID >= 1)
-                    { 
-                        
-                        fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/00" + suraID.ToString() + "00" + i.ToString() + ".mp3");
-                        if (suraID == 1 && i == 6)
-                            fileURLs.Add("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/00" + suraID.ToString() + "007" + ".mp3");
-                    }
-
-                }
-
-            }
-            if (!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), suraID.ToString())))
-            {
-                try
-                {
-                    var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
-                    if (status != PermissionStatus.Granted)
-                    {
-                        if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage))
-                        {
-                            await DisplayAlert("Need storage permission", "Gunna need that permission", "OK");
-                        }
-
-                        var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage);
-                        //Best practice to always check that the key exists
-                        if (results.ContainsKey(Permission.Storage))
-                            status = results[Permission.Storage];
-                    }
-                    else if (status == PermissionStatus.Granted)
-                    {
-                        await DisplayAlert("No need for permission", "Permission is already granted. Will start downloading sura!", "OK");
-                        foreach (string link in fileURLs)
-                        {
-
-                            DownloadFile(link, suraID.ToString());
-
-                        }
-
-                    }
-
-                    if (status == PermissionStatus.Granted)
-                    {
-                        await DisplayAlert("Stogage Granted", "Got access successfully! Will download sura now.", "OK");
-                        foreach (string link in fileURLs)
-                        {
-
-                            DownloadFile(link, suraID.ToString());
-
-
-                        }
-
-                    }
-                    else if (status != PermissionStatus.Unknown)
-                    {
-                        await DisplayAlert("Storage Denied", "Can not continue, try again.", "OK");
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    await DisplayAlert("Exception happened.", ex.Message.ToString(), "OK");
-
-                }
-
-            } 
-
-        }
-
-        public async void OnFileDownloaded(object sender, DownloadEventArgs e)
-        {
-            if (e.FileSaved)
-            {
-                //await DisplayAlert("File download", "File was downloaded and saved successfully.", "OK");
-                //File was downloaded and saved
-            }
-            else
-            {
-                //await DisplayAlert("File download", "File was downloaded but NOT saved.", "OK");
-                //File was downloaded but NOT saved
-            }
-        }
+        
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
@@ -276,13 +193,32 @@ namespace MuslimCompanion
 
             int selItemIndex = suraNames.IndexOf(selectedSuraName) + 1;
 
-            DownloadSura(selItemIndex);
+            //DownloadSura(selItemIndex);
 
             await Navigation.PushAsync( new MainPage(selItemIndex) );
 
         }
 
-        
+        private void SortAlphabetically(object sender, EventArgs e)
+        {
+
+            InitSuras(1);
+
+        }
+
+        private void SortNumerically(object sender, EventArgs e)
+        {
+
+            InitSuras(0);
+
+        }
+
+        private void SortByCount(object sender, EventArgs e)
+        {
+
+            InitSuras(2);
+
+        }
 
     }
 
@@ -292,6 +228,8 @@ namespace MuslimCompanion
         public string sname { get; set; }
         public string scount { get; set; }
         public string sindex { get; set; }
+        public string sdownloaded { get; set; }
+        public Color sdownloadcolor { get; set; }
 
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "ab1bcb83d66dfe58c454a4333e297d9955a39456"
+    "signature": "4ec3f4e05ed1237279813f56164f8294abdcb30c"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,6 +12,7 @@
           "NETStandard.Library": "2.0.3",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
+          "Xam.Plugins.Notifier": "3.0.1",
           "Xamarin.Forms": "3.4.0.1008975",
           "sqlite-net-pcl": "1.5.231"
         },
@@ -82,6 +83,18 @@
             "fileVersion": "1.0.0.0"
           },
           "lib/netstandard1.0/Plugin.SimpleAudioPlayer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xam.Plugins.Notifier/3.0.1": {
+        "runtime": {
+          "lib/netstandard1.0/Plugin.LocalNotifications.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard1.0/Plugin.LocalNotifications.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -159,6 +172,13 @@
       "sha512": "sha512-AbfKh5skVRtJn0ckRj1VDPOTf5bsNyTbfDL/bFiAI3vaq3Y/zgLvlo3Thfwv2V92P4e/PhPCkHTX8UPVyQTqJQ==",
       "path": "xam.plugin.simpleaudioplayer/1.3.0",
       "hashPath": "xam.plugin.simpleaudioplayer.1.3.0.nupkg.sha512"
+    },
+    "Xam.Plugins.Notifier/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2xV8ZSXm0Fo+zAxt2tXw3/mlBSqZ0nR46fJW1a8Yr6mGqcDNbhEGlKJoEUTkLd7gYEMIIx5bVUaMUi34yHGF4w==",
+      "path": "xam.plugins.notifier/3.0.1",
+      "hashPath": "xam.plugins.notifier.3.0.1.nupkg.sha512"
     },
     "Xamarin.Forms/3.4.0.1008975": {
       "type": "package",

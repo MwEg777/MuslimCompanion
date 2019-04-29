@@ -100,6 +100,20 @@
           "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.dll": {}
         }
       },
+      "Xam.Plugins.Notifier/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.v4": "23.0.1.3"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Plugin.LocalNotifications.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.LocalNotifications.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Plugin.LocalNotifications.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.LocalNotifications.dll": {}
+        }
+      },
       "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
         "type": "package",
         "dependencies": {
@@ -445,6 +459,7 @@
         "dependencies": {
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
+          "Xam.Plugins.Notifier": "3.0.1",
           "Xamarin.Forms": "3.4.0.1008975",
           "sqlite-net-pcl": "1.5.231"
         },
@@ -650,6 +665,41 @@
         "lib/netstandard1.0/Plugin.SimpleAudioPlayer.pdb",
         "xam.plugin.simpleaudioplayer.1.3.0.nupkg.sha512",
         "xam.plugin.simpleaudioplayer.nuspec"
+      ]
+    },
+    "Xam.Plugins.Notifier/3.0.1": {
+      "sha512": "2xV8ZSXm0Fo+zAxt2tXw3/mlBSqZ0nR46fJW1a8Yr6mGqcDNbhEGlKJoEUTkLd7gYEMIIx5bVUaMUi34yHGF4w==",
+      "type": "package",
+      "path": "xam.plugins.notifier/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Plugin.LocalNotifications.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.LocalNotifications.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.LocalNotifications.XML",
+        "lib/MonoAndroid10/Plugin.LocalNotifications.dll",
+        "lib/MonoAndroid10/Plugin.LocalNotifications.pdb",
+        "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll",
+        "lib/UAP10/Plugin.LocalNotifications.Abstractions.xml",
+        "lib/UAP10/Plugin.LocalNotifications.XML",
+        "lib/UAP10/Plugin.LocalNotifications.dll",
+        "lib/UAP10/Plugin.LocalNotifications.pdb",
+        "lib/UAP10/Plugin.LocalNotifications.pri",
+        "lib/Xamarin.Mac20/Plugin.LocalNotifications.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.LocalNotifications.Abstractions.xml",
+        "lib/Xamarin.Mac20/Plugin.LocalNotifications.dll",
+        "lib/Xamarin.Mac20/Plugin.LocalNotifications.xml",
+        "lib/Xamarin.iOS10/Plugin.LocalNotifications.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.LocalNotifications.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.LocalNotifications.XML",
+        "lib/Xamarin.iOS10/Plugin.LocalNotifications.dll",
+        "lib/netstandard1.0/Plugin.LocalNotifications.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.LocalNotifications.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.LocalNotifications.deps.json",
+        "lib/netstandard1.0/Plugin.LocalNotifications.dll",
+        "lib/netstandard1.0/Plugin.LocalNotifications.xml",
+        "xam.plugins.notifier.3.0.1.nupkg.sha512",
+        "xam.plugins.notifier.nuspec"
       ]
     },
     "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
@@ -1083,6 +1133,7 @@
       "MuslimCompanion >= 1.0.0",
       "Plugin.Permissions >= 3.0.0.12",
       "Xam.Plugin.SimpleAudioPlayer >= 1.3.0",
+      "Xam.Plugins.Notifier >= 3.0.1",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
@@ -1135,6 +1186,10 @@
           "Xam.Plugin.SimpleAudioPlayer": {
             "target": "Package",
             "version": "[1.3.0, )"
+          },
+          "Xam.Plugins.Notifier": {
+            "target": "Package",
+            "version": "[3.0.1, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",

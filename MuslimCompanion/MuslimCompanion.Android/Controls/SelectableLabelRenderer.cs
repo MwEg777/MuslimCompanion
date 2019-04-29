@@ -31,7 +31,7 @@ namespace MuslimCompanion.Droid.Controls
         public SelectableLabelRenderer(Context context) : base(context)
         {
 
-            
+            GlobalVar.Set("activeControl", null);
 
         }
 
@@ -55,8 +55,13 @@ namespace MuslimCompanion.Droid.Controls
 
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
 
-        
+        }
+
+
         private class CustomInsertionActionModeCallback : Java.Lang.Object, ActionMode.ICallback
         {
             public bool OnCreateActionMode(ActionMode mode, IMenu menu) => false;
@@ -102,15 +107,52 @@ namespace MuslimCompanion.Droid.Controls
     public class SelectableInterfaceImplementation : ISelectableLabel
     {
 
-        public void SelectPartOfText(int startIndex, int endIndex)
+        public async void SelectPartOfText(int startIndex, int endIndex)
         {
+
             FormsEditText fet = GlobalVar.Get<FormsEditText>("activeControl");
+
+            int timeOutInSeconds = 1, awaitedMS = 0;
+
+            do
+            {
+
+                await Task.Delay(100);
+                awaitedMS += 100;
+                fet = GlobalVar.Get<FormsEditText>("activeControl");
+                if (awaitedMS >= timeOutInSeconds * 1000)
+                    break;
+
+            }
+            while (fet == null);
 
             if (fet == null)
                 return;
 
             fet.RequestFocus();
-            fet.SetSelection(startIndex, endIndex);
+
+            try
+            {
+
+                fet.SetSelection(startIndex, endIndex);
+
+            }
+            catch (Exception ex)
+            {
+
+                int newIndex = endIndex - 1;
+
+                while (newIndex > fet.Text.Length)
+                {
+
+                    newIndex--;
+
+                }
+
+                fet.SetSelection(startIndex, newIndex);
+
+            }
+            
 
         }
 

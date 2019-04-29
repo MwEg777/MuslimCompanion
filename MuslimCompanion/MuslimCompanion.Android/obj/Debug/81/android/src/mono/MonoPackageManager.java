@@ -110,6 +110,8 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"MuslimCompanion.dll",
 		"Plugin.CurrentActivity.dll",
+		"Plugin.LocalNotifications.Abstractions.dll",
+		"Plugin.LocalNotifications.dll",
 		"Plugin.Permissions.dll",
 		"Plugin.SimpleAudioPlayer.Abstractions.dll",
 		"Plugin.SimpleAudioPlayer.dll",
@@ -145,5 +147,5 @@ class MonoPackageManager_Resources {
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_27";
+	public static final String ApiPackageName = null;
 }

@@ -4,14 +4,16 @@
              x:Class="MuslimCompanion.Search">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Search for an Ayah"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="إبحث عن آية"
+                    HeightRequest="40"
+                    Margin="20"
+                    HorizontalOptions="CenterAndExpand"
+                   />
             
-            <Entry Placeholder="Write ayah content in Arabic"
+            <Entry Placeholder="اكتب محتوى الآية"
                    x:Name="AyahField"></Entry>
             
-            <Button Text="Search"
+            <Button Text="ابحث"
                     Clicked="Button_Clicked"></Button>
 
             <ListView x:Name="ResultView">

@@ -3,4 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuslimCompanion.ChooseSura">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ترتيب أبجدي" Order="Secondary" Icon="Microsoft.png" Priority="0" Clicked="SortAlphabetically"/>
+        <ToolbarItem Text="ترتيب برقم السورة" Order="Secondary" Icon="Xamarin.png" Priority="1" Clicked="SortNumerically" />
+        <ToolbarItem Text="ترتيب بعدد الآيات" Order="Secondary" Icon="Xamarin.png" Priority="2" Clicked="SortByCount" />
+    </ContentPage.ToolbarItems>
+
 </ContentPage>

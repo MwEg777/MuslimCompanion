@@ -19,8 +19,8 @@ namespace MuslimCompanion
             Children.Add(new ChooseSura());
             Children.Add(new Search());
 
-            Children[0].Title = "Choose Sura";
-            Children[1].Title = "Search Ayah";
+            Children[0].Title = "السور";
+            Children[1].Title = "البحث عن آية";
         }
     }
 }

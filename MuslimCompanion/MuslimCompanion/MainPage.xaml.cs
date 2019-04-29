@@ -22,6 +22,8 @@ namespace MuslimCompanion
 
         List<Quran> quran;
 
+        int loadedSura = 0;
+
         public MainPage(int selectedSura = 1, int mode = 0, AyahSearchResult asr = null) // 0 = Normal sura mode, 1 = Search Ayah mode
         {
 
@@ -33,6 +35,8 @@ namespace MuslimCompanion
                 LoadSura(asr.SuraID, mode, asr);
             else
                 LoadSura(selectedSura, mode, asr);
+
+            loadedSura = selectedSura;
 
             //TestDB();
 
@@ -46,6 +50,7 @@ namespace MuslimCompanion
         {
             base.OnAppearing();
             //NavigationPage.SetHasNavigationBar(this, false);
+            canPlaySura = true;
             
         }
 
@@ -135,11 +140,6 @@ namespace MuslimCompanion
 
             sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
 
-            if (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), suraNumber.ToString())))
-            {
-                PlaySurah(suraNumber);
-            }
-
 
             if (mode == 1 && asr != null)
             {
@@ -154,18 +154,29 @@ namespace MuslimCompanion
 
             }
 
-
-
-               
-
-
-
-            
-
         }
+
+        bool canPlaySura = true;
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            canPlaySura = false;
+        }
+
+
 
         public async void PlaySurah(int suraID)
         {
+
+            if(!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), suraID.ToString())))
+            {
+
+                await DisplayAlert("لم يتم تحميل السورة", "يرجى تحميل السورة أولا", "موافق");
+                return;
+
+            }
+
 
             string basePath = Path.Combine(GlobalVar.Get<string>("quranaudio"), suraID.ToString());
 
@@ -173,8 +184,22 @@ namespace MuslimCompanion
 
             string fullPathOfFile = basePath;
 
+            if (!canPlaySura)
+                return;
+
+            if (suraID != 1)
+            { 
+
+                DependencyService.Get<IAudioService>().PlayAudioFile(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3"));
+
+                await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3")));
+
+            }
             for (int i = 0; i < ayahCount; i++)
             {
+
+                if (!canPlaySura)
+                    return;
 
                 if (i >= 100)
                 {
@@ -200,7 +225,7 @@ namespace MuslimCompanion
                 {
 
                     if (suraID >= 100)
-                        fullPathOfFile = Path.Combine(basePath, "0" + suraID.ToString() + i.ToString() + ".mp3");
+                        fullPathOfFile = Path.Combine(basePath, suraID.ToString() + i.ToString() + ".mp3");
                     else if (suraID >= 10)
                         if (suraID >= 17)
                             fullPathOfFile = Path.Combine(basePath, "0" + suraID.ToString() + "0" + (i + 1).ToString() + ".mp3");
@@ -215,7 +240,7 @@ namespace MuslimCompanion
                 {
 
                     if (suraID >= 100)
-                        fullPathOfFile = Path.Combine(basePath, "00" + suraID.ToString() + (i + 1).ToString() + ".mp3");
+                        fullPathOfFile = Path.Combine(basePath, suraID.ToString() + "00" + (i + 1).ToString() + ".mp3");
                     else if (suraID >= 10)
                         if (suraID >= 17)
                             fullPathOfFile = Path.Combine(basePath, "0" + suraID.ToString() + "00" + (i + 1).ToString() + ".mp3");
@@ -246,6 +271,17 @@ namespace MuslimCompanion
 
                     }
 
+                    else if (i == 7)
+                    {
+
+                        AyahIndex = sl.Text.IndexOf(sura[i - 1].AyahText);
+
+
+                        AyahEndIndex = sl.Text.Length;
+
+
+                    }
+
                 }
 
                 else
@@ -253,7 +289,14 @@ namespace MuslimCompanion
 
                     AyahIndex = sl.Text.IndexOf(sura[i].AyahText);
 
-                    AyahEndIndex = sl.Text.IndexOf(sura[i + 1].AyahText);
+                    try
+                    { 
+                        AyahEndIndex = sl.Text.IndexOf(sura[i + 1].AyahText);
+                    }
+                    catch
+                    {
+                        AyahEndIndex = sl.Text.Length;
+                    }
 
                 }
 
@@ -282,6 +325,33 @@ namespace MuslimCompanion
 
         }
 
+        private void DownloadSuraToolbarItem(object sender, EventArgs e)
+        {
 
+            if (GlobalVar.Get<float>("downloadprogress", -1) == -1)
+                DownloadSura(loadedSura);
+
+        }
+
+        private void PlaySuraToolbarItem(object sender, EventArgs e)
+        {
+
+            PlaySurah(loadedSura);
+
+        }
+
+        private void ZoomInToolbarItem(object sender, EventArgs e)
+        {
+
+            sl.FontSize++;
+
+        }
+
+        private void ZoomOutToolbarItem(object sender, EventArgs e)
+        {
+
+            sl.FontSize--;
+
+        }
     }
 }

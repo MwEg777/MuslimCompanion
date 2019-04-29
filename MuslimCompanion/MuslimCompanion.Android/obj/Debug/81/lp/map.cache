@@ -1,6 +1,8 @@
 FormsViewGroup
 MuslimCompanion
 Plugin.CurrentActivity
+Plugin.LocalNotifications.Abstractions
+Plugin.LocalNotifications
 Plugin.Permissions
 Plugin.SimpleAudioPlayer.Abstractions
 Plugin.SimpleAudioPlayer
