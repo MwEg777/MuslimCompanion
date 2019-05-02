@@ -60,6 +60,7 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Mono.Security.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\MuslimCompanion.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Plugin.SimpleAudioPlayer.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Plugin.LocalNotifications.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\MuslimCompanion.Android.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\FormsViewGroup.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Mono.Android.pdb
@@ -83,12 +84,17 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\System.ComponentModel.Composition.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\System.Web.Services.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Mono.Security.pdb
-D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Plugin.LocalNotifications.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Plugin.Settings.Abstractions.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\bin\Debug\Plugin.Settings.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\MuslimCompanion.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.LocalNotifications.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.Settings.Abstractions.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.Settings.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.SimpleAudioPlayer.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\MuslimCompanion.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.LocalNotifications.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.Settings.Abstractions.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.Settings.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.SimpleAudioPlayer.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\FormsViewGroup.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Mono.Android.pdb
@@ -107,4 +113,6 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\MuslimCompanion.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.LocalNotifications.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.Settings.Abstractions.dll.mdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.Settings.dll.mdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\linksrc\Plugin.SimpleAudioPlayer.dll.mdb

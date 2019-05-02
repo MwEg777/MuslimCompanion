@@ -4,6 +4,8 @@ Plugin.CurrentActivity
 Plugin.LocalNotifications.Abstractions
 Plugin.LocalNotifications
 Plugin.Permissions
+Plugin.Settings.Abstractions
+Plugin.Settings
 Plugin.SimpleAudioPlayer.Abstractions
 Plugin.SimpleAudioPlayer
 SQLite-net

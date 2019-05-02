@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static MuslimCompanion.Core.GeneralManager;
@@ -17,17 +18,26 @@ using static MuslimCompanion.Core.GeneralManager;
 namespace MuslimCompanion
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChooseSura : ContentPage
+    public partial class ChooseSura : ContentPage, INotifyPropertyChanged
     {
-        public ObservableCollection<SuraItem> Items;
+        
         List<suranames> sura;
         List<string> suraNames;
         DataTemplate suraTemplate;
+        bool showingFavs;
+        private string showing;
+
+        public string Showing { get { return showing; } set { showing = value; OnPropertyChanged(nameof(Showing)); } }
 
         public ChooseSura()
         {
 
             InitializeComponent();
+
+            BindingContext = this;
+
+            Showing = "عرض السور المفضلة";
+
             suraTemplate = new DataTemplate(() =>
             {
                 var grid = new Grid();
@@ -67,10 +77,31 @@ namespace MuslimCompanion
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            InitSuras();
+            InitSuras(favsOnly: showingFavs);
+
+            if (showingFavs)
+                Showing = "عرض كل السور";
+            else
+                Showing = "عرض السور المفضلة";
+
         }
 
-        async void InitSuras(int mode = 0) //0 means sort by sura number.  //1 means sort by sura name. //2 means sort by count of ayah
+        void ToggleFavs(object sender, EventArgs e)
+        {
+
+            showingFavs = !showingFavs;
+            InitSuras(favsOnly: showingFavs);
+            
+            if (showingFavs)
+                Showing = "عرض كل السور";
+            else
+                Showing = "عرض السور المفضلة";
+
+            App.Current.Properties["showingfavs"] = Showing;
+
+        }
+
+        async void InitSuras(int mode = 0, bool favsOnly = false) //0 means sort by sura number.  //1 means sort by sura name. //2 means sort by count of ayah
         {
 
             if (conn == null)
@@ -85,36 +116,57 @@ namespace MuslimCompanion
 
             sura = conn.Table<suranames>().ToList();
 
-            if (!GlobalVar.Get<bool>("initializedsuras", false)) { 
+            Items = new ObservableCollection<SuraItem>();
 
-                Items = new ObservableCollection<SuraItem>();
+            CopyItems = new ObservableCollection<SuraItem>();
 
-                suraNames = new List<string>();
+            suraNames = new List<string>();
 
-            }
+
 
             for (int i = 0; i < 114; i++)
             {
 
-                if (!GlobalVar.Get<bool>("initializedsuras", false)) { 
 
-                    SuraItem suraItemToAdd = new SuraItem { sname = sura[i].SuraName,
-                        sindex = (i + 1).ToString(),
-                        scount = suraAyahCounts[i].ToString(),
-                        sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها"),
-                        sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red)
-                    };
+                SuraItem suraItemToAdd = new SuraItem { sname = sura[i].SuraName,
+                    sindex = (i + 1).ToString(),
+                    scount = suraAyahCounts[i].ToString(),
+                    sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها"),
+                    sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red)
+                };
 
-                    Items.Add(suraItemToAdd);
-                    suraNames.Add(sura[i].SuraName);
+
+                if (favsOnly)
+                {
+
+                    if (AppSettings.Contains("favsura" + (i+1).ToString()))
+                    {
+                        
+
+                        if ((string)AppSettings.GetValueOrDefault("favsura" + (i+1).ToString(), "إضافة إلى المفضلة") == "إضافة إلى المفضلة")
+                            continue;
+                        Items.Add(suraItemToAdd);
+                        CopyItems.Add(suraItemToAdd);
+                        suraNames.Add(sura[i].SuraName);
+                        Items[Items.IndexOf(suraItemToAdd)].sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها");
+                        Items[Items.IndexOf(suraItemToAdd)].sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red);
+
+
+                    }
+                    else
+                        continue;
+
 
                 }
-
                 else
-                { 
+                {
 
+                    Items.Add(suraItemToAdd);
+                    CopyItems.Add(suraItemToAdd);
+                    suraNames.Add(sura[i].SuraName);
                     Items[i].sdownloaded = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? "تم تحميلها" : "لم يتم تحميلها");
                     Items[i].sdownloadcolor = (Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), (i + 1).ToString())) ? Color.Green : Color.Red);
+
 
                 }
 
@@ -170,10 +222,18 @@ namespace MuslimCompanion
 
             gr.Children.Add(suraDownloadButtonName);
 
+            SearchBar sb = new SearchBar
+            {
+                Placeholder = "أدخل إسم سورة"
+            };
+
+            sb.Behaviors.Add(new TextChangedBehavior());
+
             Content = new StackLayout
             {
                 Margin = new Thickness(10),
                 Children = {
+                sb,
                 gr,
                 lv
                 }
@@ -181,8 +241,38 @@ namespace MuslimCompanion
        
     }
 
+        public class TextChangedBehavior : Behavior<SearchBar>
+        {
+            protected override void OnAttachedTo(SearchBar bindable)
+            {
+                base.OnAttachedTo(bindable);
+                bindable.TextChanged += Bindable_TextChanged;
+            }
 
-        
+            protected override void OnDetachingFrom(SearchBar bindable)
+            {
+                base.OnDetachingFrom(bindable);
+                bindable.TextChanged -= Bindable_TextChanged;
+            }
+
+            private void Bindable_TextChanged(object sender, TextChangedEventArgs e)
+            {
+                //((SearchBar)sender).SearchCommand?.Execute(e.NewTextValue);
+                ObservableCollection<SuraItem> NewItems = new ObservableCollection<SuraItem>(CopyItems);
+                foreach(SuraItem si in CopyItems)
+                {
+
+                    if (!si.sname.Contains(e.NewTextValue))
+                        NewItems.Remove(si);
+
+                }
+                foreach (SuraItem si in new ObservableCollection<SuraItem>(Items))
+                    Items.Remove(si);
+                foreach (SuraItem si in NewItems)
+                    Items.Add(si);
+            }
+        }
+
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {

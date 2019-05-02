@@ -12,15 +12,20 @@ using MuslimCompanion.Core;
 using Xamarin.Forms.PlatformConfiguration;
 using System.IO;
 using static MuslimCompanion.Core.GeneralManager;
+using System.ComponentModel;
 
 namespace MuslimCompanion
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
 
         public int counter = 1;
 
         List<Quran> quran;
+
+        private string favState;
+
+        public string FavState { get { return favState; } set { favState = value; OnPropertyChanged(nameof(FavState)); } } 
 
         int loadedSura = 0;
 
@@ -28,6 +33,8 @@ namespace MuslimCompanion
         {
 
             InitializeComponent();
+
+            BindingContext = this;
 
             quran = conn.Table<Quran>().ToList();
 
@@ -37,6 +44,9 @@ namespace MuslimCompanion
                 LoadSura(selectedSura, mode, asr);
 
             loadedSura = selectedSura;
+
+            if (AppSettings.Contains("favsura" + loadedSura.ToString())) FavState = (string)AppSettings.GetValueOrDefault("favsura" + selectedSura.ToString(), "إضافة إلى المفضلة");
+            else FavState = "إضافة إلى المفضلة";
 
             //TestDB();
 
@@ -54,10 +64,34 @@ namespace MuslimCompanion
             
         }
 
-        void SetupLayout()
+        public void ToggleFav(object sender, EventArgs e)
         {
 
+            if (AppSettings.Contains("favsura" + loadedSura.ToString()))
+            {
+                if ((string)App.Current.Properties["favsura" + loadedSura.ToString()] == "إضافة إلى المفضلة")
+                {
 
+                    FavState = "حذف من المفضلة";
+                    AppSettings.AddOrUpdateValue("favsura" + loadedSura.ToString(), FavState);
+
+                }
+                else
+                {
+
+                    FavState = "إضافة إلى المفضلة";
+                    AppSettings.AddOrUpdateValue("favsura" + loadedSura.ToString(), FavState);
+
+                }
+            }
+
+            else
+            {
+
+                FavState = "حذف من المفضلة";
+                AppSettings.AddOrUpdateValue("favsura" + loadedSura.ToString(), FavState);
+
+            }
 
         }
 
@@ -72,8 +106,6 @@ namespace MuslimCompanion
             tempAyahNumber = 1;
 
             tempSurahNumber = suraNumber;
-
-            SetupLayout();
 
             GlobalVar.Set("selectabletoset", "suralabel");
             sl = new SelectableLabel();
@@ -188,12 +220,16 @@ namespace MuslimCompanion
                 return;
 
             if (suraID != 1)
-            { 
+            {
 
-                DependencyService.Get<IAudioService>().PlayAudioFile(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3"));
+                if (!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah")))
+                {
 
-                await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3")));
+                    DependencyService.Get<IAudioService>().PlayAudioFile(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3"));
 
+                    await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah", "bismillah.mp3")));
+
+                }
             }
             for (int i = 0; i < ayahCount; i++)
             {

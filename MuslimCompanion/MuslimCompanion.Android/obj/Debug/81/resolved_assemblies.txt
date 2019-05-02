@@ -8,6 +8,8 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.LocalNotifications.Abstractions.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.LocalNotifications.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.Permissions.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.Settings.Abstractions.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.Settings.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.SimpleAudioPlayer.Abstractions.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Plugin.SimpleAudioPlayer.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\SQLite-net.dll

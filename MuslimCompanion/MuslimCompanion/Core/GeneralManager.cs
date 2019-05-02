@@ -2,18 +2,26 @@
 using Plugin.LocalNotifications;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace MuslimCompanion.Core
 {
     public static class GeneralManager
     {
+        public static ObservableCollection<SuraItem> Items, CopyItems;
+
+        public static ISettings AppSettings =>
+    CrossSettings.Current;
 
         public static List<string> suraAyahCounts = new List<string>(new string[] { "8", "286", "200", "176", "120", "165", "206", "75", "129", "109",
             "123", "111", "43", "52", "99", "128" ,"111" ,"110", "98", "135",
@@ -81,8 +89,7 @@ namespace MuslimCompanion.Core
                 //await DisplayAlert("Exception happened.", ex.Message.ToString(), "OK");
             }
 
-            if (!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah")))
-                DownloadFile("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/bismillah.mp3", "bismillah");
+            
 
         }
 
@@ -96,7 +103,7 @@ namespace MuslimCompanion.Core
                 CrossLocalNotifications.Current.Show("جاري تحميل السورة ", (GlobalVar.Get<float>("downloadprogress", 0) * 100).ToString() + "%");
                 if (GlobalVar.Get<float>("downloadprogress", 0) >= 1) { 
                     CrossLocalNotifications.Current.Show("تم تحميل السورة بنجاح ", "يمكنك الآن تشغيل السورة");
-                    GlobalVar.Set("downloadprogress", -1);
+                    GlobalVar.Set("downloadprogress", -1f);
                 }
             }
             else
@@ -117,7 +124,7 @@ namespace MuslimCompanion.Core
         public static async void DownloadSura(int suraID)
         {
 
-            GlobalVar.Set("downloadprogress", 0);
+            GlobalVar.Set("downloadprogress", 0f);
 
             int ayahCount = int.Parse(suraAyahCounts[suraID - 1]);
 
@@ -235,7 +242,12 @@ namespace MuslimCompanion.Core
 
             }
 
+            if (!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), "bismillah")))
+                DownloadFile("http://www.everyayah.com/data/Abdul_Basit_Murattal_64kbps/bismillah.mp3", "bismillah");
+
         }
+
+
 
     }
 }

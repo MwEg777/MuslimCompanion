@@ -113,6 +113,8 @@ class MonoPackageManager_Resources {
 		"Plugin.LocalNotifications.Abstractions.dll",
 		"Plugin.LocalNotifications.dll",
 		"Plugin.Permissions.dll",
+		"Plugin.Settings.Abstractions.dll",
+		"Plugin.Settings.dll",
 		"Plugin.SimpleAudioPlayer.Abstractions.dll",
 		"Plugin.SimpleAudioPlayer.dll",
 		"SQLite-net.dll",
