@@ -44,6 +44,10 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.RangeSlider.Common.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.RangeSlider.Droid.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.RangeSlider.Forms.dll
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\Xamarin.RangeSlider.Forms.Droid.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\System.Net.Http.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\System.Runtime.Serialization.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.Android\obj\Debug\81\android\assets\System.ServiceModel.Internals.dll

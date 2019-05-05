@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "a0971a83577d988190b0feb40fa1caab0cd6d7b1"
+    "signature": "ff74545a189b1118da57a412cf3893b9c1853a78"
   },
   "compilationOptions": {},
   "targets": {
@@ -15,6 +15,7 @@
           "Xam.Plugins.Notifier": "3.0.1",
           "Xam.Plugins.Settings": "3.1.1",
           "Xamarin.Forms": "3.4.0.1008975",
+          "Xamarin.Forms.RangeSlider": "1.0.1",
           "sqlite-net-pcl": "1.5.231"
         },
         "runtime": {
@@ -131,6 +132,26 @@
             "fileVersion": "2.0.0.0"
           }
         }
+      },
+      "Xamarin.Forms.RangeSlider/1.0.1": {
+        "dependencies": {
+          "Xamarin.Forms": "3.4.0.1008975",
+          "Xamarin.RangeSlider": "1.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.RangeSlider.Forms.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.RangeSlider/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.RangeSlider.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -209,6 +230,20 @@
       "sha512": "sha512-036/h8HtzRFgTrfhY57IeHoYRsPTO2XTA6uUFdmZzw2QR1sdszfofhI9HrCJTRx6fCzmjPg5Cxk5chYrjKarNw==",
       "path": "xamarin.forms/3.4.0.1008975",
       "hashPath": "xamarin.forms.3.4.0.1008975.nupkg.sha512"
+    },
+    "Xamarin.Forms.RangeSlider/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hXlCmh4duV5OQ1D/EcO4RlN8RkXEQ+Ga3F9qSlqMDwIl8iZkpYoist1ehXpQIcGKRw0k1wcBxqUlxcl0gjwflA==",
+      "path": "xamarin.forms.rangeslider/1.0.1",
+      "hashPath": "xamarin.forms.rangeslider.1.0.1.nupkg.sha512"
+    },
+    "Xamarin.RangeSlider/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tG68/D5nm7a0jfCY4ctZW7Sv4yR39q7XqosFYulltHFUnEmJLl9KEbCboQ6ORNi3mT0hJHl3cwkkEn2IuS7kwA==",
+      "path": "xamarin.rangeslider/1.0.1",
+      "hashPath": "xamarin.rangeslider.1.0.1.nupkg.sha512"
     }
   }
 }

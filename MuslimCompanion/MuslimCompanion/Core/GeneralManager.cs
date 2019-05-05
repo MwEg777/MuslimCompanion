@@ -41,6 +41,8 @@ namespace MuslimCompanion.Core
 
             void PlayAudioFile(string filePath);
             int RetrieveLength(string filePath);
+            void PauseAudioFile();
+            void ResumeAudioFile();
 
         }
 

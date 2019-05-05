@@ -1,7 +1,6 @@
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.deps.json
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\bin\Debug\netstandard2.0\MuslimCompanion.pdb
-D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csprojAssemblyReference.cache
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\ChooseSura.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\HomePage.xaml.g.cs

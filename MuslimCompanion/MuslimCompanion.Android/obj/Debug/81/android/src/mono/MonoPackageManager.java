@@ -146,6 +146,10 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"Xamarin.RangeSlider.Common.dll",
+		"Xamarin.RangeSlider.Droid.dll",
+		"Xamarin.RangeSlider.Forms.dll",
+		"Xamarin.RangeSlider.Forms.Droid.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

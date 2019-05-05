@@ -38,5 +38,9 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
+Xamarin.RangeSlider.Common
+Xamarin.RangeSlider.Droid
+Xamarin.RangeSlider.Forms
+Xamarin.RangeSlider.Forms.Droid
 netstandard
 System.Reflection.Extensions

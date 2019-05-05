@@ -13,6 +13,7 @@ using Xamarin.Forms.PlatformConfiguration;
 using System.IO;
 using static MuslimCompanion.Core.GeneralManager;
 using System.ComponentModel;
+using Plugin.LocalNotifications;
 
 namespace MuslimCompanion
 {
@@ -25,7 +26,11 @@ namespace MuslimCompanion
 
         private string favState;
 
-        public string FavState { get { return favState; } set { favState = value; OnPropertyChanged(nameof(FavState)); } } 
+        public string FavState { get { return favState; } set { favState = value; OnPropertyChanged(nameof(FavState)); } }
+
+        private string nightModeState;
+
+        public string NightModeState { get { return nightModeState; } set { nightModeState = value; OnPropertyChanged(nameof(NightModeState)); } }
 
         int loadedSura = 0;
 
@@ -48,6 +53,11 @@ namespace MuslimCompanion
             if (AppSettings.Contains("favsura" + loadedSura.ToString())) FavState = (string)AppSettings.GetValueOrDefault("favsura" + selectedSura.ToString(), "إضافة إلى المفضلة");
             else FavState = "إضافة إلى المفضلة";
 
+            NightModeState = "وضع القراءة الليلي";
+
+            ToggleNightMode(new object(), new EventArgs());
+            ToggleNightMode(new object(), new EventArgs());
+
             //TestDB();
 
         }
@@ -69,7 +79,7 @@ namespace MuslimCompanion
 
             if (AppSettings.Contains("favsura" + loadedSura.ToString()))
             {
-                if ((string)App.Current.Properties["favsura" + loadedSura.ToString()] == "إضافة إلى المفضلة")
+                if (AppSettings.GetValueOrDefault("favsura" + loadedSura.ToString(), "إضافة إلى المفضلة") == "إضافة إلى المفضلة")
                 {
 
                     FavState = "حذف من المفضلة";
@@ -95,11 +105,54 @@ namespace MuslimCompanion
 
         }
 
+        public void ToggleNightMode(object sender, EventArgs e)
+        {
+
+            if (AppSettings.Contains("nightmode"))
+            {
+                if (AppSettings.GetValueOrDefault("nightmode", "وضع القراءة الليلي") == "وضع القراءة الليلي")
+                {
+
+                    NightModeState = "وضع القراءة العادي";
+                    AppSettings.AddOrUpdateValue("nightmode", NightModeState);
+                    sl.TextColor = Color.White;
+                    ((NavigationPage)Application.Current.MainPage).BackgroundColor = Color.Black;
+                    ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DarkSlateGray;
+                    basmalahImage.Source = "basmalahwhite.png";
+
+                }
+                else
+                {
+
+                    NightModeState = "وضع القراءة الليلي";
+                    AppSettings.AddOrUpdateValue("nightmode", NightModeState);
+                    sl.TextColor = Color.Black;
+                    ((NavigationPage)Application.Current.MainPage).BackgroundColor = Color.White;
+                    ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DodgerBlue;
+                    basmalahImage.Source = "basmalah.png";
+
+                }
+            }
+
+            else
+            {
+
+                NightModeState = "وضع القراءة العادي";
+                AppSettings.AddOrUpdateValue("nightmode", NightModeState);
+                sl.TextColor = Color.White;
+                ((NavigationPage)Application.Current.MainPage).BackgroundColor = Color.Black;
+                ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DarkSlateGray;
+                basmalahImage.Source = "basmalahwhite.png";
+
+            }
+
+        }
+
         int tempSurahNumber = 1;
         int tempAyahNumber = 1;
 
         List<Quran> sura;
-
+        
         public async void LoadSura(int suraNumber, int mode = 0, AyahSearchResult asr = null)
         {
 
@@ -194,6 +247,8 @@ namespace MuslimCompanion
         {
             base.OnDisappearing();
             canPlaySura = false;
+            ((NavigationPage)Application.Current.MainPage).BackgroundColor = Color.White;
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DodgerBlue;
         }
 
 
@@ -208,7 +263,6 @@ namespace MuslimCompanion
                 return;
 
             }
-
 
             string basePath = Path.Combine(GlobalVar.Get<string>("quranaudio"), suraID.ToString());
 

@@ -22,7 +22,7 @@ namespace MuslimCompanion
     {
         
         List<suranames> sura;
-        List<string> suraNames;
+        List<string> suraNames, suraNamesOriginal;
         DataTemplate suraTemplate;
         bool showingFavs;
         private string showing;
@@ -122,11 +122,12 @@ namespace MuslimCompanion
 
             suraNames = new List<string>();
 
-
+            suraNamesOriginal = new List<string>();
 
             for (int i = 0; i < 114; i++)
             {
 
+                suraNamesOriginal.Add(sura[i].SuraName);
 
                 SuraItem suraItemToAdd = new SuraItem { sname = sura[i].SuraName,
                     sindex = (i + 1).ToString(),
@@ -281,7 +282,7 @@ namespace MuslimCompanion
 
             string selectedSuraName = ((SuraItem)e.Item).sname;
 
-            int selItemIndex = suraNames.IndexOf(selectedSuraName) + 1;
+            int selItemIndex = suraNamesOriginal.IndexOf(selectedSuraName) + 1;
 
             //DownloadSura(selItemIndex);
 

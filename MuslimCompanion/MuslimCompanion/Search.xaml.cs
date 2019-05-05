@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.RangeSlider.Common;
+using Xamarin.RangeSlider.Forms;
 
 namespace MuslimCompanion
 {
@@ -21,6 +23,8 @@ namespace MuslimCompanion
         List<QuranNoTashkeel> quran;
 
         ObservableCollection<string> AyahSearchResults;
+
+        int minSura = 0, maxSura = 114;
 
         public Search ()
 		{
@@ -76,6 +80,9 @@ namespace MuslimCompanion
                 if (String.IsNullOrEmpty(Ayah.aya))
                     continue;
 
+                if (Ayah.sid > maxSura || Ayah.sid < minSura)
+                    continue;
+
                 if (Ayah.aya.Contains(toSearch))
                 {
                     AyahSearchResults.Add(Ayah.aya);
@@ -110,6 +117,24 @@ namespace MuslimCompanion
             }
 
             await Navigation.PushAsync(new MainPage(asr.SuraID, 1, asr));
+
+        }
+
+        private void RangeSlider_LowerValueChanged(object sender, EventArgs e)
+        {
+
+            RangeSlider rs = (RangeSlider)sender;
+            minSura = (int)rs.LowerValue;
+            maxSura = (int)rs.MaximumValue;
+
+        }
+
+        private void RangeSlider_UpperValueChanged(object sender, EventArgs e)
+        {
+
+            RangeSlider rs = (RangeSlider)sender;
+            minSura = (int)rs.LowerValue;
+            maxSura = (int)rs.MaximumValue;
 
         }
     }

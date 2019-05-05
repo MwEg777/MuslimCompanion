@@ -23,9 +23,26 @@ namespace MuslimCompanion.Droid.AndroidCore
         public void PlayAudioFile(string filePath)
         {
             var player = new MediaPlayer();
+            GlobalVar.Set("activeplayer", player);
             player.SetDataSource(filePath);
             player.Prepared += (s, e) => { player.Start(); };
             player.Prepare();
+        }
+
+        public void PauseAudioFile()
+        {
+
+            var player = GlobalVar.Get<MediaPlayer>("activeplayer");
+            player.Pause();
+
+        }
+
+        public void ResumeAudioFile()
+        {
+
+            var player = GlobalVar.Get<MediaPlayer>("activeplayer");
+            player.Start();
+
         }
 
         public int RetrieveLength(string filePath)

@@ -464,6 +464,32 @@
           "build/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.RangeSlider/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0",
+          "Xamarin.RangeSlider": "1.0.1"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.Droid.dll": {},
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.Droid.dll": {},
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.dll": {}
+        }
+      },
+      "Xamarin.RangeSlider/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Common.dll": {},
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Droid.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Common.dll": {},
+          "lib/MonoAndroid10/Xamarin.RangeSlider.Droid.dll": {}
+        }
+      },
       "MuslimCompanion/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -473,6 +499,7 @@
           "Xam.Plugins.Notifier": "3.0.1",
           "Xam.Plugins.Settings": "3.1.1",
           "Xamarin.Forms": "3.4.0.1008975",
+          "Xamarin.Forms.RangeSlider": "1.0.1",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -1202,6 +1229,56 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Forms.RangeSlider/1.0.1": {
+      "sha512": "hXlCmh4duV5OQ1D/EcO4RlN8RkXEQ+Ga3F9qSlqMDwIl8iZkpYoist1ehXpQIcGKRw0k1wcBxqUlxcl0gjwflA==",
+      "type": "package",
+      "path": "xamarin.forms.rangeslider/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.Droid.dll",
+        "lib/MonoAndroid10/Xamarin.RangeSlider.Forms.dll",
+        "lib/Xamarin.iOS10/Xamarin.RangeSlider.Forms.dll",
+        "lib/Xamarin.iOS10/Xamarin.RangeSlider.Forms.iOS.dll",
+        "lib/netstandard2.0/Xamarin.RangeSlider.Forms.dll",
+        "lib/uap10.0/Xamarin.RangeSlider.Forms.UWP.dll",
+        "lib/uap10.0/Xamarin.RangeSlider.Forms.UWP.pri",
+        "lib/uap10.0/Xamarin.RangeSlider.Forms.dll",
+        "xamarin.forms.rangeslider.1.0.1.nupkg.sha512",
+        "xamarin.forms.rangeslider.nuspec"
+      ]
+    },
+    "Xamarin.RangeSlider/1.0.1": {
+      "sha512": "tG68/D5nm7a0jfCY4ctZW7Sv4yR39q7XqosFYulltHFUnEmJLl9KEbCboQ6ORNi3mT0hJHl3cwkkEn2IuS7kwA==",
+      "type": "package",
+      "path": "xamarin.rangeslider/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Xamarin.iOS10/Resources/slider-default7-handle-disabled.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-handle-disabled@2x.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-handle.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-handle@2x.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-track.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-track@2x.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-trackBackground.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-trackBackground@2x.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-trackCrossedOver.png",
+        "content/Xamarin.iOS10/Resources/slider-default7-trackCrossedOver@2x.png",
+        "lib/MonoAndroid10/Xamarin.RangeSlider.Common.dll",
+        "lib/MonoAndroid10/Xamarin.RangeSlider.Droid.dll",
+        "lib/Xamarin.iOS10/Xamarin.RangeSlider.Common.dll",
+        "lib/Xamarin.iOS10/Xamarin.RangeSlider.iOS.dll",
+        "lib/netstandard2.0/Xamarin.RangeSlider.Common.dll",
+        "lib/uap10.0/Xamarin.RangeSlider.Common.dll",
+        "lib/uap10.0/Xamarin.RangeSlider.UWP.dll",
+        "lib/uap10.0/Xamarin.RangeSlider.UWP.pri",
+        "lib/uap10.0/Xamarin.RangeSlider.UWP/RangeSliderControl.xbf",
+        "lib/uap10.0/Xamarin.RangeSlider.UWP/Xamarin.RangeSlider.UWP.xr.xml",
+        "xamarin.rangeslider.1.0.1.nupkg.sha512",
+        "xamarin.rangeslider.nuspec"
+      ]
+    },
     "MuslimCompanion/1.0.0": {
       "type": "project",
       "path": "../MuslimCompanion/MuslimCompanion.csproj",
@@ -1220,7 +1297,8 @@
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
-      "Xamarin.Forms >= 3.4.0.1008975"
+      "Xamarin.Forms >= 3.4.0.1008975",
+      "Xamarin.Forms.RangeSlider >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -1299,6 +1377,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.4.0.1008975, )"
+          },
+          "Xamarin.Forms.RangeSlider": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           }
         }
       }

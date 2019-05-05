@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Xamarin.RangeSlider.Forms;assembly=Xamarin.RangeSlider.Forms"
              x:Class="MuslimCompanion.Search">
     <ContentPage.Content>
         <StackLayout>
@@ -12,9 +13,13 @@
             
             <Entry Placeholder="اكتب محتوى الآية"
                    x:Name="AyahField"></Entry>
-            
+
             <Button Text="ابحث"
                     Clicked="Button_Clicked"></Button>
+
+            <Label Text="مدى البحث ( مثال : من سورة 10 إلى سورة 100 )" TextColor="DimGray" FontSize="12" HorizontalOptions="Center"></Label>
+
+            <forms:RangeSlider x:Name="RangeSlider" MinimumValue="1" MaximumValue="114" LowerValue="1" UpperValue="114" StepValue="1" StepValueContinuously="False" VerticalOptions="Center" TextSize="20" TextColor="Black" ShowTextAboveThumbs="True" BarHeight="5" LowerValueChanged="RangeSlider_LowerValueChanged" UpperValueChanged="RangeSlider_UpperValueChanged"/>
 
             <ListView x:Name="ResultView">
                 

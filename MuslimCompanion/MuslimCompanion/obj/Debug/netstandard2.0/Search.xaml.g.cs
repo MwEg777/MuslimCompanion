@@ -20,12 +20,16 @@ namespace MuslimCompanion {
         private global::Xamarin.Forms.Entry AyahField;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.RangeSlider.Forms.RangeSlider RangeSlider;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView ResultView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Search));
             AyahField = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "AyahField");
+            RangeSlider = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.RangeSlider.Forms.RangeSlider>(this, "RangeSlider");
             ResultView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "ResultView");
         }
     }
