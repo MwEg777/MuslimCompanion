@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        }
+      },
       "Plugin.Permissions/3.0.0.12": {
         "type": "package",
         "compile": {
@@ -245,6 +259,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
@@ -262,6 +277,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        }
+      },
       "Plugin.Permissions/3.0.0.12": {
         "type": "package",
         "compile": {
@@ -505,6 +534,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
@@ -522,6 +552,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        }
+      },
       "Plugin.Permissions/3.0.0.12": {
         "type": "package",
         "compile": {
@@ -765,6 +809,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
@@ -782,6 +827,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/FormsToolkit.dll": {},
+          "lib/Xamarin.iOS10/FormsToolkit.iOS.dll": {}
+        }
+      },
       "Plugin.Permissions/3.0.0.12": {
         "type": "package",
         "compile": {
@@ -1025,6 +1084,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
@@ -1043,6 +1103,32 @@
     }
   },
   "libraries": {
+    "FormsToolkit/2.0.1": {
+      "sha512": "W/sk9fk3MMMfeFdf3OoHKnhf39EBzsaiH/7cO1ezySKIQPOmYPGxKZQpRb6Z9pBp7TEmsqqP3BPCUdOqHi1QIA==",
+      "type": "package",
+      "path": "formstoolkit/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "formstoolkit.2.0.1.nupkg.sha512",
+        "formstoolkit.nuspec",
+        "lib/MonoAndroid10/FormsToolkit.Android.XML",
+        "lib/MonoAndroid10/FormsToolkit.Android.dll",
+        "lib/MonoAndroid10/FormsToolkit.dll",
+        "lib/MonoAndroid10/FormsToolkit.pdb",
+        "lib/MonoAndroid10/FormsToolkit.xml",
+        "lib/Xamarin.iOS10/FormsToolkit.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.XML",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.pdb",
+        "lib/Xamarin.iOS10/FormsToolkit.xml",
+        "lib/netstandard1.0/FormsToolkit.deps.json",
+        "lib/netstandard1.0/FormsToolkit.dll",
+        "lib/netstandard1.0/FormsToolkit.pdb",
+        "lib/netstandard1.0/FormsToolkit.xml",
+        "readme.txt"
+      ]
+    },
     "Plugin.Permissions/3.0.0.12": {
       "sha512": "R8Rlzfci1byoPBGOiJfCMzu0HhhN6Q4Vq4YizlF41W946NEmoL/Mb8U5caP5t5KfSbdPQpzdQ9JfM8fxPG8pfw==",
       "type": "package",
@@ -1518,6 +1604,7 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
+      "FormsToolkit >= 2.0.1",
       "MuslimCompanion >= 1.0.0",
       "Plugin.Permissions >= 3.0.0.12",
       "Xam.Plugin.SimpleAudioPlayer >= 1.3.0",
@@ -1564,6 +1651,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "FormsToolkit": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "Plugin.Permissions": {
             "target": "Package",
             "version": "[3.0.0.12, )"

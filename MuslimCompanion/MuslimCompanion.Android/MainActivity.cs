@@ -8,7 +8,7 @@ using Android.OS;
 using System.IO;
 using Plugin.Permissions;
 using Plugin.CurrentActivity;
-
+using FormsToolkit.Droid;
 
 namespace MuslimCompanion.Droid
 {
@@ -22,6 +22,8 @@ namespace MuslimCompanion.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            Toolkit.Init();
 
             string dbPath = FileAccessHelper.GetLocalFilePath("quran.db");
 

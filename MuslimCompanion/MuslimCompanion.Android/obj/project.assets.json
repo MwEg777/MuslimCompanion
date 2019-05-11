@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v8.1": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/MonoAndroid10/FormsToolkit.Android.dll": {},
+          "lib/MonoAndroid10/FormsToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/FormsToolkit.Android.dll": {},
+          "lib/MonoAndroid10/FormsToolkit.dll": {}
+        }
+      },
       "Plugin.CurrentActivity/2.1.0.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -494,6 +508,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
@@ -512,6 +527,32 @@
     }
   },
   "libraries": {
+    "FormsToolkit/2.0.1": {
+      "sha512": "W/sk9fk3MMMfeFdf3OoHKnhf39EBzsaiH/7cO1ezySKIQPOmYPGxKZQpRb6Z9pBp7TEmsqqP3BPCUdOqHi1QIA==",
+      "type": "package",
+      "path": "formstoolkit/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "formstoolkit.2.0.1.nupkg.sha512",
+        "formstoolkit.nuspec",
+        "lib/MonoAndroid10/FormsToolkit.Android.XML",
+        "lib/MonoAndroid10/FormsToolkit.Android.dll",
+        "lib/MonoAndroid10/FormsToolkit.dll",
+        "lib/MonoAndroid10/FormsToolkit.pdb",
+        "lib/MonoAndroid10/FormsToolkit.xml",
+        "lib/Xamarin.iOS10/FormsToolkit.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.XML",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.pdb",
+        "lib/Xamarin.iOS10/FormsToolkit.xml",
+        "lib/netstandard1.0/FormsToolkit.deps.json",
+        "lib/netstandard1.0/FormsToolkit.dll",
+        "lib/netstandard1.0/FormsToolkit.pdb",
+        "lib/netstandard1.0/FormsToolkit.xml",
+        "readme.txt"
+      ]
+    },
     "Plugin.CurrentActivity/2.1.0.2": {
       "sha512": "5jmilYPu9fcSh/3AYRrDkvXhWlsZTzf3SDhJKdtIl8EL+/YM1lrjv99MGVqC0jKloCWND9aOrgBKJCMzQsVamw==",
       "type": "package",
@@ -1287,6 +1328,7 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
+      "FormsToolkit >= 2.0.1",
       "MuslimCompanion >= 1.0.0",
       "Plugin.Permissions >= 3.0.0.12",
       "Xam.Plugin.SimpleAudioPlayer >= 1.3.0",
@@ -1338,6 +1380,10 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
+          "FormsToolkit": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "Plugin.Permissions": {
             "target": "Package",
             "version": "[3.0.0.12, )"

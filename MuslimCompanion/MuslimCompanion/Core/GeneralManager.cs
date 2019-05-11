@@ -53,9 +53,14 @@ namespace MuslimCompanion.Core
 
         }
 
+
+        
+
         public static IDownloader downloader;
 
         public static SQLiteConnection conn;
+
+        
 
         public static async void InitConnection()
         {

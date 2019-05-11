@@ -151,6 +151,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FormsToolkit">
+      <Version>2.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>3.0.0.12</Version>
     </PackageReference>
@@ -180,5 +183,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\basmalahwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ayahoptionsbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\QuranFrame.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
 </Project>

@@ -12,6 +12,8 @@ using Android.Widget;
 using MuslimCompanion.Droid.AndroidCore;
 using Xamarin.Forms;
 using static MuslimCompanion.Core.GeneralManager;
+using static Android.Media.MediaPlayer;
+using FormsToolkit;
 
 [assembly: Dependency(typeof(AudioRender))]
 
@@ -22,11 +24,28 @@ namespace MuslimCompanion.Droid.AndroidCore
 
         public void PlayAudioFile(string filePath)
         {
+
             var player = new MediaPlayer();
+            if (GlobalVar.Get<MediaPlayer>("activeplayer") != null) GlobalVar.Get<MediaPlayer>("activeplayer").Stop();
             GlobalVar.Set("activeplayer", player);
             player.SetDataSource(filePath);
             player.Prepared += (s, e) => { player.Start(); };
             player.Prepare();
+            player.SetOnCompletionListener(new OnCompletionHelper());
+            MessagingService.Current.SendMessage("AyahPlaybackStarted");
+
+        }
+
+        public class OnCompletionHelper : Java.Lang.Object, IOnCompletionListener
+        {
+
+            public void OnCompletion(MediaPlayer mp)
+            {
+
+                MessagingService.Current.SendMessage("AyahPlaybackDone");
+
+            }
+
         }
 
         public void PauseAudioFile()

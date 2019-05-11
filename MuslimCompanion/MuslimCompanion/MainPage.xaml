@@ -5,12 +5,12 @@
              x:Class="MuslimCompanion.MainPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="DownloadSuraItem" Order="Secondary" Icon="Microsoft.png" Text="تحميل السورة" Priority="0" Clicked="DownloadSuraToolbarItem" />
-        <ToolbarItem Name="PlaySuraItem" Order="Secondary" Icon="Xamarin.png" Text="تشغيل السورة" Priority="1" Clicked="PlaySuraToolbarItem"/>
-        <ToolbarItem Name="AddToFavItem" Order="Secondary" Icon="Xamarin.png" Text="{Binding FavState}" Priority="1" Clicked="ToggleFav"/>
-        <ToolbarItem Name="NightModeItem" Order="Secondary" Icon="Xamarin.png" Text="{Binding NightModeState}" Priority="1" Clicked="ToggleNightMode"/>
-        <ToolbarItem Name="ZoomInItem" Order="Primary" Icon="Xamarin.png" Text="+" Priority="1" Clicked="ZoomInToolbarItem"/>
-        <ToolbarItem Name="ZoomOutItem" Order="Primary" Icon="Xamarin.png" Text="-" Priority="1" Clicked="ZoomOutToolbarItem"/>
+        <ToolbarItem x:Name="DownloadSuraItem" Order="Secondary" Icon="Microsoft.png" Text="تحميل السورة" Priority="0" Clicked="DownloadSuraToolbarItem" />
+        <ToolbarItem x:Name="PlaySuraItem" Order="Secondary" Icon="Xamarin.png" Text="تشغيل السورة" Priority="1" Clicked="PlaySuraToolbarItem"/>
+        <ToolbarItem x:Name="AddToFavItem" Order="Secondary" Icon="Xamarin.png" Text="{Binding FavState}" Priority="1" Clicked="ToggleFav"/>
+        <ToolbarItem x:Name="NightModeItem" Order="Secondary" Icon="Xamarin.png" Text="{Binding NightModeState}" Priority="1" Clicked="ToggleNightMode"/>
+        <ToolbarItem x:Name="ZoomInItem" Order="Primary" Icon="baseline_zoom_in_white_24.png" Text="+" Priority="1" Clicked="ZoomInToolbarItem"/>
+        <ToolbarItem x:Name="ZoomOutItem" Order="Primary" Icon="baseline_zoom_out_white_24.png" Text="-" Priority="1" Clicked="ZoomOutToolbarItem"/>
 
     </ContentPage.ToolbarItems>
 
@@ -64,5 +64,12 @@
 
 
     </Grid>
+    
+    <ContentPage.Content>
 
+        <Image x:Name="ayahOptionsBg" Source="ayahoptionsbg.png" Aspect="AspectFit"
+        VerticalOptions="Center"/>
+
+    </ContentPage.Content>
+    
 </ContentPage>

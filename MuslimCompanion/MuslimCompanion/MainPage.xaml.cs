@@ -14,11 +14,14 @@ using System.IO;
 using static MuslimCompanion.Core.GeneralManager;
 using System.ComponentModel;
 using Plugin.LocalNotifications;
+using FormsToolkit;
 
 namespace MuslimCompanion
 {
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
+
+        bool playingAyah;
 
         public int counter = 1;
 
@@ -32,6 +35,12 @@ namespace MuslimCompanion
 
         public string NightModeState { get { return nightModeState; } set { nightModeState = value; OnPropertyChanged(nameof(NightModeState)); } }
 
+        private int selectedAyahNumber = -1;
+
+        public List<int> AyahEndsIndices;
+
+        ToolbarItem TafseerToolbarItem, FavoriteAyahToolbarItem, PlayAyahToolbarItem, TranslateAyahToolbarItem;
+
         int loadedSura = 0;
 
         public MainPage(int selectedSura = 1, int mode = 0, AyahSearchResult asr = null) // 0 = Normal sura mode, 1 = Search Ayah mode
@@ -40,6 +49,46 @@ namespace MuslimCompanion
             InitializeComponent();
 
             BindingContext = this;
+
+            TafseerToolbarItem = new ToolbarItem("تفسير", "baseline_library_books_white_24.png", () =>
+            {
+
+                
+
+            });
+
+            FavoriteAyahToolbarItem = new ToolbarItem("أضف إلى الآيات المفضلة", "baseline_favorite_white_24.png", () =>
+            {
+
+
+
+            });
+
+            PlayAyahToolbarItem = new ToolbarItem("تشغيل الآية", "baseline_play_arrow_white_24.png", () =>
+            {
+
+                if (!playingAyah)
+                {
+                    PlayAyah(selectedAyahNumber);
+                    playingAyah = true;
+                }
+                else
+                {
+                    playingAyah = false;
+                    DependencyService.Get<IAudioService>().PauseAudioFile();
+                    PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
+                }
+
+            });
+
+            TranslateAyahToolbarItem = new ToolbarItem("ترجمة الآية", "baseline_translate_white_24.png", () =>
+            {
+
+
+
+            });
+
+            AyahEndsIndices = new List<int>();
 
             quran = conn.Table<Quran>().ToList();
 
@@ -60,8 +109,69 @@ namespace MuslimCompanion
 
             //TestDB();
 
-        }
+            MessagingService.Current.Subscribe("AyahDeselected", (arg1) => {
 
+                if (ToolbarItems.Contains(TafseerToolbarItem))  ToolbarItems.Remove(TafseerToolbarItem);
+                if (ToolbarItems.Contains(FavoriteAyahToolbarItem)) ToolbarItems.Remove(FavoriteAyahToolbarItem);
+                if (ToolbarItems.Contains(PlayAyahToolbarItem)) ToolbarItems.Remove(PlayAyahToolbarItem);
+                if (ToolbarItems.Contains(TranslateAyahToolbarItem)) ToolbarItems.Remove(TranslateAyahToolbarItem);
+                ToolbarItems.Add(ZoomInItem);
+                ToolbarItems.Add(ZoomOutItem);
+
+            });
+
+            MessagingService.Current.Subscribe("AyahPlaybackDone", (arg1) =>
+            {
+
+                playingAyah = false;
+                PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
+
+            });
+
+            MessagingService.Current.Subscribe("AyahPlaybackStarted", (arg1) =>
+            {
+
+                playingAyah = true;
+                PlayAyahToolbarItem.Icon = "baseline_pause_white_24.png";
+
+            });
+
+            MessagingService.Current.Subscribe<AyahSelected>("AyahSelected", (arg1, arg2) =>
+            {
+                int si = arg2.startIndex;
+                int ei = arg2.endIndex;
+                selectedAyahNumber = -1;
+
+                foreach(int end in AyahEndsIndices)
+                {
+
+                    if (ei < end)
+                    {
+
+                        selectedAyahNumber = AyahEndsIndices.IndexOf(end) + 1;
+                        break;
+
+                    }
+
+                }
+
+                if (selectedAyahNumber == -1)
+                {
+
+                    return;
+
+                }
+
+                ToolbarItems.Remove(ZoomInItem);
+                ToolbarItems.Remove(ZoomOutItem);
+                if (!ToolbarItems.Contains(TafseerToolbarItem)) ToolbarItems.Add(TafseerToolbarItem);
+                if (!ToolbarItems.Contains(FavoriteAyahToolbarItem)) ToolbarItems.Add(FavoriteAyahToolbarItem);
+                if (!ToolbarItems.Contains(PlayAyahToolbarItem)) ToolbarItems.Add(PlayAyahToolbarItem);
+                if (!ToolbarItems.Contains(TranslateAyahToolbarItem)) ToolbarItems.Add(TranslateAyahToolbarItem);
+
+            });
+
+        }
         
 
         SelectableLabel sl;
@@ -152,13 +262,22 @@ namespace MuslimCompanion
         int tempAyahNumber = 1;
 
         List<Quran> sura;
+
+        public void OnTextSelected()
+        {
+
+            DisplayAlert("Got event", "Event triggered successfully!", "OK");
+
+        }
         
-        public async void LoadSura(int suraNumber, int mode = 0, AyahSearchResult asr = null)
+        public void LoadSura(int suraNumber, int mode = 0, AyahSearchResult asr = null)
         {
 
             tempAyahNumber = 1;
 
             tempSurahNumber = suraNumber;
+
+            AyahEndsIndices = new List<int>();
 
             GlobalVar.Set("selectabletoset", "suralabel");
             sl = new SelectableLabel();
@@ -221,6 +340,8 @@ namespace MuslimCompanion
 
                 sl.Text += ConvertNumerals(textToAdd);
 
+                AyahEndsIndices.Add(sl.Text.Length);
+
             }
 
             sl.FontFamily = Device.RuntimePlatform == Device.Android ? "me_quran.ttf#me_quran" : "me_quran";
@@ -251,7 +372,139 @@ namespace MuslimCompanion
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DodgerBlue;
         }
 
+        public async void PlayAyah(int ayahID)
+        {
 
+            if (!Directory.Exists(Path.Combine(GlobalVar.Get<string>("quranaudio"), loadedSura.ToString())))
+            {
+
+                await DisplayAlert("لم يتم تحميل السورة", "يرجى تحميل السورة أولا", "موافق");
+                return;
+
+            }
+
+            string basePath = Path.Combine(GlobalVar.Get<string>("quranaudio"), loadedSura.ToString());
+
+            int ayahCount = int.Parse(suraAyahCounts[loadedSura - 1]);
+
+            string fullPathOfFile = basePath;
+
+            if (!canPlaySura)
+                return;
+
+            if (ayahID >= 100)
+            {
+
+                if (loadedSura >= 100)
+                    fullPathOfFile = Path.Combine(basePath, loadedSura.ToString() + (ayahID + 1).ToString() + ".mp3");
+
+                else if (loadedSura >= 10)
+                    if (loadedSura >= 17)
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + (ayahID + 1).ToString() + ".mp3");
+
+                    else
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + ayahID.ToString() + ".mp3");
+
+                else if (loadedSura >= 1)
+                    fullPathOfFile = Path.Combine(basePath, "00" + loadedSura.ToString() + ayahID.ToString() + ".mp3");
+
+
+
+            }
+
+            else if (ayahID >= 10)
+            {
+
+                if (loadedSura >= 100)
+                    fullPathOfFile = Path.Combine(basePath, loadedSura.ToString() + ayahID.ToString() + ".mp3");
+                else if (loadedSura >= 10)
+                    if (loadedSura >= 17)
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + "0" + (ayahID + 1).ToString() + ".mp3");
+                    else
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + "0" + ayahID.ToString() + ".mp3");
+                else if (loadedSura >= 1)
+                    fullPathOfFile = Path.Combine(basePath, "00" + loadedSura.ToString() + "0" + ayahID.ToString() + ".mp3");
+
+            }
+
+            else if (ayahID >= 0)
+            {
+
+                if (loadedSura >= 100)
+                    fullPathOfFile = Path.Combine(basePath, loadedSura.ToString() + "00" + (ayahID + 1).ToString() + ".mp3");
+                else if (loadedSura >= 10)
+                    if (loadedSura >= 17)
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + "00" + (ayahID + 1).ToString() + ".mp3");
+                    else
+                        fullPathOfFile = Path.Combine(basePath, "0" + loadedSura.ToString() + "00" + ayahID.ToString() + ".mp3");
+                else if (loadedSura >= 1)
+                {
+                    fullPathOfFile = Path.Combine(basePath, "00" + loadedSura.ToString() + "00" + ayahID.ToString() + ".mp3");
+                    if (loadedSura == 1 && ayahID == 7)
+                        fullPathOfFile = Path.Combine(basePath, "00" + loadedSura.ToString() + "007" + ".mp3");
+                }
+
+            }
+
+            DependencyService.Get<IAudioService>().PlayAudioFile(fullPathOfFile);
+
+            int AyahIndex = 0, AyahEndIndex = 0;
+
+            if (loadedSura == 1)
+            {
+
+                if (ayahID != 0 && ayahID != 7)
+                {
+
+                    AyahIndex = sl.Text.IndexOf(sura[ayahID - 1].AyahText);
+
+                    AyahEndIndex = sl.Text.IndexOf(sura[ayahID].AyahText);
+
+                }
+
+                else if (ayahID == 7)
+                {
+
+                    AyahIndex = sl.Text.IndexOf(sura[ayahID - 1].AyahText);
+
+
+                    AyahEndIndex = sl.Text.Length;
+
+
+                }
+
+            }
+
+            else
+            {
+
+                AyahIndex = sl.Text.IndexOf(sura[ayahID].AyahText);
+
+                try
+                {
+                    AyahEndIndex = sl.Text.IndexOf(sura[ayahID + 1].AyahText);
+                }
+                catch
+                {
+                    AyahEndIndex = sl.Text.Length;
+                }
+
+            }
+
+            DependencyService.Get<ISelectableLabel>().SelectPartOfText(AyahIndex, AyahEndIndex);
+
+            await Task.Delay(50);
+
+            ToolbarItems.Remove(ZoomInItem);
+            ToolbarItems.Remove(ZoomOutItem);
+            if (!ToolbarItems.Contains(TafseerToolbarItem)) ToolbarItems.Add(TafseerToolbarItem);
+            if (!ToolbarItems.Contains(FavoriteAyahToolbarItem)) ToolbarItems.Add(FavoriteAyahToolbarItem);
+            if (!ToolbarItems.Contains(PlayAyahToolbarItem)) ToolbarItems.Add(PlayAyahToolbarItem);
+            if (!ToolbarItems.Contains(TranslateAyahToolbarItem)) ToolbarItems.Add(TranslateAyahToolbarItem);
+
+            await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(fullPathOfFile) - 50);
+
+        }
 
         public async void PlaySurah(int suraID)
         {
@@ -441,6 +694,13 @@ namespace MuslimCompanion
         {
 
             sl.FontSize--;
+
+        }
+
+        private void Tafseer_Clicked(object sender, EventArgs e)
+        {
+
+            
 
         }
     }

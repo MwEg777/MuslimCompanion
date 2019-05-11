@@ -27,6 +27,13 @@ public class SelectableLabelRenderer_CustomSelectionActionModeCallback
 			mono.android.TypeManager.Activate ("MuslimCompanion.Droid.Controls.SelectableLabelRenderer+CustomSelectionActionModeCallback, MuslimCompanion.Android", "", this, new java.lang.Object[] {  });
 	}
 
+	public SelectableLabelRenderer_CustomSelectionActionModeCallback (md55d8e31d89b58142b7fd54dce39607607.SelectableLabelRenderer p0)
+	{
+		super ();
+		if (getClass () == SelectableLabelRenderer_CustomSelectionActionModeCallback.class)
+			mono.android.TypeManager.Activate ("MuslimCompanion.Droid.Controls.SelectableLabelRenderer+CustomSelectionActionModeCallback, MuslimCompanion.Android", "MuslimCompanion.Droid.Controls.SelectableLabelRenderer, MuslimCompanion.Android", this, new java.lang.Object[] { p0 });
+	}
+
 
 	public boolean onActionItemClicked (android.view.ActionMode p0, android.view.MenuItem p1)
 	{

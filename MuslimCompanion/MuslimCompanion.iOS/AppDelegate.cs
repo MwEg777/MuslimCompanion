@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using FormsToolkit.iOS;
 using Foundation;
 using UIKit;
 
@@ -24,6 +24,8 @@ namespace MuslimCompanion.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Toolkit.Init();
 
             string dbPath = FileAccessHelper.GetLocalFilePath("quran.db");
 

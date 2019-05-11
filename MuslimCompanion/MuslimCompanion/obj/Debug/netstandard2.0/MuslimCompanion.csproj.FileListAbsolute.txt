@@ -11,4 +11,5 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.AssemblyInfo.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.pdb
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csprojAssemblyReference.cache
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\XamlC.stamp

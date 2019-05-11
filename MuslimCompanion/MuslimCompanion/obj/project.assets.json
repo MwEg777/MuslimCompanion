@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "FormsToolkit/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/netstandard1.0/FormsToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/FormsToolkit.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -156,6 +169,32 @@
     }
   },
   "libraries": {
+    "FormsToolkit/2.0.1": {
+      "sha512": "W/sk9fk3MMMfeFdf3OoHKnhf39EBzsaiH/7cO1ezySKIQPOmYPGxKZQpRb6Z9pBp7TEmsqqP3BPCUdOqHi1QIA==",
+      "type": "package",
+      "path": "formstoolkit/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "formstoolkit.2.0.1.nupkg.sha512",
+        "formstoolkit.nuspec",
+        "lib/MonoAndroid10/FormsToolkit.Android.XML",
+        "lib/MonoAndroid10/FormsToolkit.Android.dll",
+        "lib/MonoAndroid10/FormsToolkit.dll",
+        "lib/MonoAndroid10/FormsToolkit.pdb",
+        "lib/MonoAndroid10/FormsToolkit.xml",
+        "lib/Xamarin.iOS10/FormsToolkit.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.XML",
+        "lib/Xamarin.iOS10/FormsToolkit.iOS.dll",
+        "lib/Xamarin.iOS10/FormsToolkit.pdb",
+        "lib/Xamarin.iOS10/FormsToolkit.xml",
+        "lib/netstandard1.0/FormsToolkit.deps.json",
+        "lib/netstandard1.0/FormsToolkit.dll",
+        "lib/netstandard1.0/FormsToolkit.pdb",
+        "lib/netstandard1.0/FormsToolkit.xml",
+        "readme.txt"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
@@ -757,6 +796,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "FormsToolkit >= 2.0.1",
       "NETStandard.Library >= 2.0.3",
       "Plugin.Permissions >= 3.0.0.12",
       "Xam.Plugin.SimpleAudioPlayer >= 1.3.0",
@@ -808,6 +848,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "FormsToolkit": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
