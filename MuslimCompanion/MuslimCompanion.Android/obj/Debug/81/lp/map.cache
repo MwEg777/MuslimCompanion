@@ -10,6 +10,8 @@ Plugin.Settings.Abstractions
 Plugin.Settings
 Plugin.SimpleAudioPlayer.Abstractions
 Plugin.SimpleAudioPlayer
+SlideOverKit
+SlideOverKit.Droid
 SQLite-net
 SQLitePCLRaw.batteries_green
 SQLitePCLRaw.batteries_v2

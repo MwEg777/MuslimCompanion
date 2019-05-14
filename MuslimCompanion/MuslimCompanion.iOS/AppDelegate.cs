@@ -27,6 +27,8 @@ namespace MuslimCompanion.iOS
 
             Toolkit.Init();
 
+            SlideOverKit.iOS.SlideOverKit.Init();
+
             string dbPath = FileAccessHelper.GetLocalFilePath("quran.db");
 
             LoadApplication(new App(dbPath));

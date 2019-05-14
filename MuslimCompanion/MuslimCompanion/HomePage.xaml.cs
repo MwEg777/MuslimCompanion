@@ -21,6 +21,7 @@ namespace MuslimCompanion
 
             Children[0].Title = "السور";
             Children[1].Title = "البحث عن آية";
+
         }
     }
 }

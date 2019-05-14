@@ -4,7 +4,6 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\ChooseSura.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\HomePage.xaml.g.cs
-D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\Search.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csproj.CoreCompileInputs.cache
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.AssemblyInfoInputs.cache
@@ -12,4 +11,5 @@ D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompani
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.dll
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.pdb
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\MuslimCompanion.csprojAssemblyReference.cache
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\SlideUpMenuView.xaml.g.cs
 D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion\obj\Debug\netstandard2.0\XamlC.stamp

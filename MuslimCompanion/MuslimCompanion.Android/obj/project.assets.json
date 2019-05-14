@@ -45,6 +45,17 @@
           "lib/monoandroid71/Plugin.Permissions.dll": {}
         }
       },
+      "SlideOverKit/2.1.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/SlideOverKit.Droid.dll": {},
+          "lib/MonoAndroid10/SlideOverKit.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/SlideOverKit.Droid.dll": {},
+          "lib/MonoAndroid10/SlideOverKit.dll": {}
+        }
+      },
       "sqlite-net-pcl/1.5.231": {
         "type": "package",
         "dependencies": {
@@ -510,6 +521,7 @@
         "dependencies": {
           "FormsToolkit": "2.0.1",
           "Plugin.Permissions": "3.0.0.12",
+          "SlideOverKit": "2.1.6.2",
           "Xam.Plugin.SimpleAudioPlayer": "1.3.0",
           "Xam.Plugins.Notifier": "3.0.1",
           "Xam.Plugins.Settings": "3.1.1",
@@ -588,6 +600,36 @@
         "plugin.permissions.3.0.0.12.nupkg.sha512",
         "plugin.permissions.nuspec",
         "readme.txt"
+      ]
+    },
+    "SlideOverKit/2.1.6.2": {
+      "sha512": "sgFyLbO9t4g5ks2NnDU3nBCjPBRzdFdm4nZ+D+O53u0Pdcy+XW2H/f5W71IdvIoKT4KzJO2zEreLu9vbzfwghg==",
+      "type": "package",
+      "path": "slideoverkit/2.1.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/SlideOverKit.Droid.dll",
+        "lib/MonoAndroid10/SlideOverKit.Droid.pdb",
+        "lib/MonoAndroid10/SlideOverKit.dll",
+        "lib/MonoAndroid10/SlideOverKit.pdb",
+        "lib/Xamarin.iOS10/SlideOverKit.dll",
+        "lib/Xamarin.iOS10/SlideOverKit.iOS.dll",
+        "lib/Xamarin.iOS10/SlideOverKit.iOS.pdb",
+        "lib/Xamarin.iOS10/SlideOverKit.pdb",
+        "lib/netstandard1.0/SlideOverKit.deps.json",
+        "lib/netstandard1.0/SlideOverKit.dll",
+        "lib/netstandard1.0/SlideOverKit.pdb",
+        "lib/netstandard2.0/SlideOverKit.deps.json",
+        "lib/netstandard2.0/SlideOverKit.dll",
+        "lib/netstandard2.0/SlideOverKit.pdb",
+        "lib/uap10.0/SlideOverKit.UWP.dll",
+        "lib/uap10.0/SlideOverKit.UWP.pdb",
+        "lib/uap10.0/SlideOverKit.UWP.pri",
+        "lib/uap10.0/SlideOverKit.dll",
+        "lib/uap10.0/SlideOverKit.pdb",
+        "slideoverkit.2.1.6.2.nupkg.sha512",
+        "slideoverkit.nuspec"
       ]
     },
     "sqlite-net-pcl/1.5.231": {
@@ -1331,6 +1373,7 @@
       "FormsToolkit >= 2.0.1",
       "MuslimCompanion >= 1.0.0",
       "Plugin.Permissions >= 3.0.0.12",
+      "SlideOverKit >= 2.1.6.2",
       "Xam.Plugin.SimpleAudioPlayer >= 1.3.0",
       "Xam.Plugins.Notifier >= 3.0.1",
       "Xam.Plugins.Settings >= 3.1.1",
@@ -1387,6 +1430,10 @@
           "Plugin.Permissions": {
             "target": "Package",
             "version": "[3.0.0.12, )"
+          },
+          "SlideOverKit": {
+            "target": "Package",
+            "version": "[2.1.6.2, )"
           },
           "Xam.Plugin.SimpleAudioPlayer": {
             "target": "Package",
