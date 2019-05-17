@@ -1,0 +1,8 @@
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\optimized\
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\MuslimCompanion.iOS.csprojAssemblyReference.cache
+D:\XamarinProjects\MuslimCompanion\MuslimCompanion\MuslimCompanion\MuslimCompanion.iOS\obj\iPhone\Debug\MuslimCompanion.iOS.csproj.CoreCompileInputs.cache

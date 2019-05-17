@@ -22,7 +22,7 @@ namespace MuslimCompanion
     public partial class MainPage : MenuContainerPage, INotifyPropertyChanged
     {
 
-        bool playingAyah;
+        bool playingAyah, canPlayNextAyah;
 
         public int counter = 1;
 
@@ -241,21 +241,68 @@ namespace MuslimCompanion
             
             });
 
-            MessagingService.Current.Subscribe("AyahPlaybackDone", (arg1) =>
-            {
-
-                playingAyah = false;
-                PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
-
-            });
-
             MessagingService.Current.Subscribe("AyahPlaybackStarted", (arg1) =>
             {
 
                 playingAyah = true;
                 PlayAyahToolbarItem.Icon = "baseline_pause_white_24.png";
 
+                GlobalVar.Set("currentAyahDone", false);
+
+                canPlayNextAyah = true;
+
             });
+
+            MessagingService.Current.Subscribe("AyahPlaybackDone", (arg1) =>
+            {
+
+                playingAyah = false;
+                PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
+                
+                GlobalVar.Set("currentAyahDone", true);
+
+                canPlayNextAyah = true;
+
+            });
+
+            MessagingService.Current.Subscribe("PausedFromNotification", (arg1) =>
+            {
+
+                playingAyah = false;
+                PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
+                DependencyService.Get<IAudioService>().PauseAudioFile();
+                canPlayNextAyah = false;
+                //canPlaySura = false;
+
+
+            });
+
+            MessagingService.Current.Subscribe("ResumedFromNotification", (arg1) =>
+            {
+
+                playingAyah = true;
+                PlayAyahToolbarItem.Icon = "baseline_pause_white_24.png";
+                DependencyService.Get<IAudioService>().ResumeAudioFile();
+                canPlayNextAyah = true;
+                GlobalVar.Set("currentAyahDone", false);
+                //canPlaySura = false;
+
+
+            });
+
+            MessagingService.Current.Subscribe("StoppedFromNotification", (arg1) =>
+            {
+
+                playingAyah = false;
+                PlayAyahToolbarItem.Icon = "baseline_play_arrow_white_24.png";
+                DependencyService.Get<IAudioService>().StopAudioFile();
+                canPlaySura = false;
+                canPlayNextAyah = false;
+
+
+            });
+
+            
 
             MessagingService.Current.Subscribe<AyahSelected>("AyahSelected", (arg1, arg2) =>
             {
@@ -615,7 +662,7 @@ namespace MuslimCompanion
 
             DependencyService.Get<ISelectableLabel>().SelectPartOfText(AyahIndex, AyahEndIndex);
 
-            await Task.Delay(50);
+            await Task.Delay(150);
 
             ToolbarItems.Remove(ZoomInItem);
             ToolbarItems.Remove(ZoomOutItem);
@@ -624,7 +671,7 @@ namespace MuslimCompanion
             if (!ToolbarItems.Contains(PlayAyahToolbarItem)) ToolbarItems.Add(PlayAyahToolbarItem);
             if (!ToolbarItems.Contains(TranslateAyahToolbarItem)) ToolbarItems.Add(TranslateAyahToolbarItem);
 
-            await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(fullPathOfFile) - 50);
+            await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(fullPathOfFile) - 150);
 
         }
 
@@ -648,6 +695,8 @@ namespace MuslimCompanion
             if (!canPlaySura)
                 return;
 
+            canPlayNextAyah = true;
+
             if (suraID != 1)
             {
 
@@ -665,6 +714,14 @@ namespace MuslimCompanion
 
                 if (!canPlaySura)
                     return;
+
+                while (!canPlayNextAyah)
+                {
+
+                    await Task.Delay(50);
+
+                }
+
 
                 if (i >= 100)
                 {
@@ -721,6 +778,9 @@ namespace MuslimCompanion
                 }
 
                 DependencyService.Get<IAudioService>().PlayAudioFile(fullPathOfFile);
+                GlobalVar.Set("currentAyahDone", false);
+
+                canPlayNextAyah = true;
 
                 int AyahIndex = 0, AyahEndIndex = 0;
 
@@ -767,8 +827,14 @@ namespace MuslimCompanion
 
                 DependencyService.Get<ISelectableLabel>().SelectPartOfText(AyahIndex, AyahEndIndex);
 
-                await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(fullPathOfFile));
+                //await Task.Delay(DependencyService.Get<IAudioService>().RetrieveLength(fullPathOfFile));
 
+                while (!GlobalVar.Get<bool>("currentAyahDone", false))
+                {
+
+                    await Task.Delay(50);
+
+                }
 
             }
 
@@ -801,6 +867,7 @@ namespace MuslimCompanion
         private void PlaySuraToolbarItem(object sender, EventArgs e)
         {
 
+            canPlaySura = true;
             PlaySurah(loadedSura);
 
         }

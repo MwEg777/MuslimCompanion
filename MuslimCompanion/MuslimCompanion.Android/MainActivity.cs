@@ -9,6 +9,7 @@ using System.IO;
 using Plugin.Permissions;
 using Plugin.CurrentActivity;
 using FormsToolkit.Droid;
+using Android.Content;
 
 namespace MuslimCompanion.Droid
 {
