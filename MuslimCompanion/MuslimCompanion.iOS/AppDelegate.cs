@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using FormsToolkit.iOS;
 using Foundation;
+using Matcha.BackgroundService.iOS;
 using UIKit;
 
 namespace MuslimCompanion.iOS
@@ -23,13 +24,16 @@ namespace MuslimCompanion.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+            BackgroundAggregator.Init(this);
+
             global::Xamarin.Forms.Forms.Init();
 
             Toolkit.Init();
 
             SlideOverKit.iOS.SlideOverKit.Init();
 
-            string dbPath = FileAccessHelper.GetLocalFilePath("quran.db");
+            string dbPath = FileAccessHelper.GetLocalFilePath("muslimcompanion.db");
 
             LoadApplication(new App(dbPath));
 
@@ -60,7 +64,7 @@ namespace MuslimCompanion.iOS
         {
             if (!File.Exists(dbPath))
             {
-                var existingDb = NSBundle.MainBundle.PathForResource("quran", "db");
+                var existingDb = NSBundle.MainBundle.PathForResource("muslimcompanion", "db");
                 File.Copy(existingDb, dbPath);
             }
         }

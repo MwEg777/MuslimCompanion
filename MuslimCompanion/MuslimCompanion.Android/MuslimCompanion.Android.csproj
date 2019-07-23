@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -58,11 +61,20 @@
     <PackageReference Include="FormsToolkit">
       <Version>2.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Matcha.BackgroundService">
+      <Version>1.0.5478</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>3.0.0.12</Version>
     </PackageReference>
     <PackageReference Include="SlideOverKit">
       <Version>2.1.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Geolocator">
+      <Version>4.5.0.6</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer">
       <Version>1.3.0</Version>
@@ -95,10 +107,11 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AlarmNotificationReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\me_quran.ttf" />
-    <AndroidAsset Include="Assets\quran.db" />
+    <AndroidAsset Include="Assets\muslimcompanion.db" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -1124,7 +1137,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\baseline_pause_black_48.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <AndroidResource Include="Resources\raw\slowspringboard.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\abdulbasit.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

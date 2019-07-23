@@ -2423,11 +2423,11 @@ namespace MuslimCompanion.Droid
 		public partial class Attribute
 		{
 			
-			// aapt resource value: 0x7F080374
-			public const int absoluteMaxValue = 2131231604;
+			// aapt resource value: 0x7F090374
+			public const int absoluteMaxValue = 2131297140;
 			
-			// aapt resource value: 0x7F080373
-			public const int absoluteMinValue = 2131231603;
+			// aapt resource value: 0x7F090373
+			public const int absoluteMinValue = 2131297139;
 			
 			// aapt resource value: 0x7F040001
 			public const int actionBarDivider = 2130968577;
@@ -2528,11 +2528,11 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040021
 			public const int actionViewClass = 2130968609;
 			
-			// aapt resource value: 0x7F080393
-			public const int activateOnDefaultValues = 2131231635;
+			// aapt resource value: 0x7F090393
+			public const int activateOnDefaultValues = 2131297171;
 			
-			// aapt resource value: 0x7F080383
-			public const int activeColor = 2131231619;
+			// aapt resource value: 0x7F090383
+			public const int activeColor = 2131297155;
 			
 			// aapt resource value: 0x7F040022
 			public const int activityChooserViewStyle = 2130968610;
@@ -2558,8 +2558,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040029
 			public const int alphabeticModifiers = 2130968617;
 			
-			// aapt resource value: 0x7F080378
-			public const int alwaysActive = 2131231608;
+			// aapt resource value: 0x7F090378
+			public const int alwaysActive = 2131297144;
 			
 			// aapt resource value: 0x7F04002A
 			public const int arrowHeadLength = 2130968618;
@@ -2600,8 +2600,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040036
 			public const int backgroundTintMode = 2130968630;
 			
-			// aapt resource value: 0x7F080381
-			public const int barHeight = 2131231617;
+			// aapt resource value: 0x7F090381
+			public const int barHeight = 2131297153;
 			
 			// aapt resource value: 0x7F040037
 			public const int barLength = 2130968631;
@@ -2801,8 +2801,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F04006D
 			public const int customNavigationLayout = 2130968685;
 			
-			// aapt resource value: 0x7F080382
-			public const int defaultColor = 2131231618;
+			// aapt resource value: 0x7F090382
+			public const int defaultColor = 2131297154;
 			
 			// aapt resource value: 0x7F04006E
 			public const int defaultQueryHint = 2130968686;
@@ -2993,8 +2993,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F0400AB
 			public const int insetForeground = 2130968747;
 			
-			// aapt resource value: 0x7F080380
-			public const int internalPadding = 2131231616;
+			// aapt resource value: 0x7F090380
+			public const int internalPadding = 2131297152;
 			
 			// aapt resource value: 0x7F0400AC
 			public const int isLightTheme = 2130968748;
@@ -3092,8 +3092,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F0400CB
 			public const int logoDescription = 2130968779;
 			
-			// aapt resource value: 0x7F080397
-			public const int materialUI = 2131231639;
+			// aapt resource value: 0x7F090397
+			public const int materialUI = 2131297175;
 			
 			// aapt resource value: 0x7F0400CC
 			public const int maxActionInlineWidth = 2130968780;
@@ -3101,8 +3101,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F0400CD
 			public const int maxButtonHeight = 2130968781;
 			
-			// aapt resource value: 0x7F080376
-			public const int maxThumbHidden = 2131231606;
+			// aapt resource value: 0x7F090376
+			public const int maxThumbHidden = 2131297142;
 			
 			// aapt resource value: 0x7F0400CE
 			public const int measureWithLargestChild = 2130968782;
@@ -3149,8 +3149,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F0400CF
 			public const int menu = 2130968783;
 			
-			// aapt resource value: 0x7F080375
-			public const int minThumbHidden = 2131231605;
+			// aapt resource value: 0x7F090375
+			public const int minThumbHidden = 2131297141;
 			
 			// aapt resource value: 0x7F0400D0
 			public const int multiChoiceItemLayout = 2130968784;
@@ -3281,8 +3281,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F0400FA
 			public const int showDividers = 2130968826;
 			
-			// aapt resource value: 0x7F080377
-			public const int showRangeLabels = 2131231607;
+			// aapt resource value: 0x7F090377
+			public const int showRangeLabels = 2131297143;
 			
 			// aapt resource value: 0x7F0400FB
 			public const int showText = 2130968827;
@@ -3329,11 +3329,11 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040109
 			public const int statusBarScrim = 2130968841;
 			
-			// aapt resource value: 0x7F080394
-			public const int stepValue = 2131231636;
+			// aapt resource value: 0x7F090394
+			public const int stepValue = 2131297172;
 			
-			// aapt resource value: 0x7F080395
-			public const int stepValueContinuously = 2131231637;
+			// aapt resource value: 0x7F090395
+			public const int stepValueContinuously = 2131297173;
 			
 			// aapt resource value: 0x7F04010A
 			public const int subMenuArrow = 2130968842;
@@ -3416,8 +3416,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040124
 			public const int tabTextColor = 2130968868;
 			
-			// aapt resource value: 0x7F080384
-			public const int textAboveThumbsColor = 2131231620;
+			// aapt resource value: 0x7F090384
+			public const int textAboveThumbsColor = 2131297156;
 			
 			// aapt resource value: 0x7F040125
 			public const int textAllCaps = 2130968869;
@@ -3455,8 +3455,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040130
 			public const int textColorSearchUrl = 2130968880;
 			
-			// aapt resource value: 0x7F080396
-			public const int textSize = 2131231638;
+			// aapt resource value: 0x7F090396
+			public const int textSize = 2131297174;
 			
 			// aapt resource value: 0x7F040131
 			public const int theme = 2130968881;
@@ -3464,29 +3464,29 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F040132
 			public const int thickness = 2130968882;
 			
-			// aapt resource value: 0x7F080387
-			public const int thumbDisabled = 2131231623;
+			// aapt resource value: 0x7F090387
+			public const int thumbDisabled = 2131297159;
 			
-			// aapt resource value: 0x7F080385
-			public const int thumbNormal = 2131231621;
+			// aapt resource value: 0x7F090385
+			public const int thumbNormal = 2131297157;
 			
-			// aapt resource value: 0x7F080386
-			public const int thumbPressed = 2131231622;
+			// aapt resource value: 0x7F090386
+			public const int thumbPressed = 2131297158;
 			
-			// aapt resource value: 0x7F080388
-			public const int thumbShadow = 2131231624;
+			// aapt resource value: 0x7F090388
+			public const int thumbShadow = 2131297160;
 			
-			// aapt resource value: 0x7F080392
-			public const int thumbShadowBlur = 2131231634;
+			// aapt resource value: 0x7F090392
+			public const int thumbShadowBlur = 2131297170;
 			
-			// aapt resource value: 0x7F080389
-			public const int thumbShadowColor = 2131231625;
+			// aapt resource value: 0x7F090389
+			public const int thumbShadowColor = 2131297161;
 			
-			// aapt resource value: 0x7F080390
-			public const int thumbShadowXOffset = 2131231632;
+			// aapt resource value: 0x7F090390
+			public const int thumbShadowXOffset = 2131297168;
 			
-			// aapt resource value: 0x7F080391
-			public const int thumbShadowYOffset = 2131231633;
+			// aapt resource value: 0x7F090391
+			public const int thumbShadowYOffset = 2131297169;
 			
 			// aapt resource value: 0x7F040133
 			public const int thumbTextPadding = 2130968883;
@@ -3575,8 +3575,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F04014F
 			public const int useCompatPadding = 2130968911;
 			
-			// aapt resource value: 0x7F080379
-			public const int valuesAboveThumbs = 2131231609;
+			// aapt resource value: 0x7F090379
+			public const int valuesAboveThumbs = 2131297145;
 			
 			// aapt resource value: 0x7F040150
 			public const int voiceIcon = 2130968912;
@@ -3778,14 +3778,14 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F060004
 			public const int cardview_shadow_start_color = 2131099652;
 			
-			// aapt resource value: 0x7F050005
-			public const int colorAccent = 2131034117;
+			// aapt resource value: 0x7F060005
+			public const int colorAccent = 2131099653;
 			
-			// aapt resource value: 0x7F050003
-			public const int colorPrimary = 2131034115;
+			// aapt resource value: 0x7F060003
+			public const int colorPrimary = 2131099651;
 			
-			// aapt resource value: 0x7F050004
-			public const int colorPrimaryDark = 2131034116;
+			// aapt resource value: 0x7F060004
+			public const int colorPrimaryDark = 2131099652;
 			
 			// aapt resource value: 0x7F060027
 			public const int design_bottom_navigation_shadow_color = 2131099687;
@@ -3847,8 +3847,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F06003A
 			public const int highlighted_text_material_light = 2131099706;
 			
-			// aapt resource value: 0x7F050002
-			public const int launcher_background = 2131034114;
+			// aapt resource value: 0x7F060002
+			public const int launcher_background = 2131099650;
 			
 			// aapt resource value: 0x7F06003B
 			public const int material_blue_grey_800 = 2131099707;
@@ -6468,6 +6468,25 @@ namespace MuslimCompanion.Droid
 			}
 		}
 		
+		public partial class Raw
+		{
+			
+			// aapt resource value: 0x7F050002
+			public const int abdulbasit = 2131034114;
+			
+			// aapt resource value: 0x7F050003
+			public const int slowspringboard = 2131034115;
+			
+			static Raw()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Raw()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
@@ -6561,11 +6580,11 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F15001E
 			public const int appbar_scrolling_view_behavior = 2132082718;
 			
-			// aapt resource value: 0x7F090066
-			public const int ApplicationName = 2131296358;
+			// aapt resource value: 0x7F100066
+			public const int ApplicationName = 2131755110;
 			
-			// aapt resource value: 0x7F090062
-			public const int app_name = 2131296354;
+			// aapt resource value: 0x7F100062
+			public const int app_name = 2131755106;
 			
 			// aapt resource value: 0x7F15001F
 			public const int bottom_sheet_behavior = 2132082719;
@@ -6573,14 +6592,14 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F150020
 			public const int character_counter_pattern = 2132082720;
 			
-			// aapt resource value: 0x7F090064
-			public const int demo_max_label = 2131296356;
+			// aapt resource value: 0x7F100064
+			public const int demo_max_label = 2131755108;
 			
-			// aapt resource value: 0x7F090063
-			public const int demo_min_label = 2131296355;
+			// aapt resource value: 0x7F100063
+			public const int demo_min_label = 2131755107;
 			
-			// aapt resource value: 0x7F090065
-			public const int Hello = 2131296357;
+			// aapt resource value: 0x7F100065
+			public const int Hello = 2131755109;
 			
 			// aapt resource value: 0x7F15001E
 			public const int mr_button_content_description = 2132082718;
@@ -6697,8 +6716,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F160006
 			public const int Animation_Design_BottomSheetDialog = 2132148230;
 			
-			// aapt resource value: 0x7F060004
-			public const int AppCompatDialogStyle = 2131099652;
+			// aapt resource value: 0x7F070004
+			public const int AppCompatDialogStyle = 2131165188;
 			
 			// aapt resource value: 0x7F160007
 			public const int Base_AlertDialog_AppCompat = 2132148231;
@@ -7201,11 +7220,11 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x7F160004
 			public const int CardView_Light = 2132148228;
 			
-			// aapt resource value: 0x7F060002
-			public const int MainTheme = 2131099650;
+			// aapt resource value: 0x7F070002
+			public const int MainTheme = 2131165186;
 			
-			// aapt resource value: 0x7F060003
-			public const int MainTheme_Base = 2131099651;
+			// aapt resource value: 0x7F070003
+			public const int MainTheme_Base = 2131165187;
 			
 			// aapt resource value: 0x7F1600AA
 			public const int Platform_AppCompat = 2132148394;
@@ -7932,11 +7951,11 @@ namespace MuslimCompanion.Droid
 			public static int[] ActionBarLayout = new int[] {
 					16842931};
 			
-			// aapt resource value: 0x7F070047
-			public const int ActionBarLayout_android_layout_gravity = 2131165255;
+			// aapt resource value: 0x7F080047
+			public const int ActionBarLayout_android_layout_gravity = 2131230791;
 			
-			// aapt resource value: 0x7F070017
-			public const int ActionBar_background = 2131165207;
+			// aapt resource value: 0x7F080017
+			public const int ActionBar_background = 2131230743;
 			
 			// aapt resource value: 0x1
 			public const int ActionBar_backgroundSplit = 1;
@@ -8025,8 +8044,8 @@ namespace MuslimCompanion.Droid
 			public static int[] ActionMenuItemView = new int[] {
 					16843071};
 			
-			// aapt resource value: 0x7F070049
-			public const int ActionMenuItemView_android_minWidth = 2131165257;
+			// aapt resource value: 0x7F080049
+			public const int ActionMenuItemView_android_minWidth = 2131230793;
 			
 			public static int[] ActionMode = new int[] {
 					2130968626,
@@ -8036,8 +8055,8 @@ namespace MuslimCompanion.Droid
 					2130968847,
 					2130968901};
 			
-			// aapt resource value: 0x7F070051
-			public const int ActionMode_background = 2131165265;
+			// aapt resource value: 0x7F080051
+			public const int ActionMode_background = 2131230801;
 			
 			// aapt resource value: 0x1
 			public const int ActionMode_backgroundSplit = 1;
@@ -8058,8 +8077,8 @@ namespace MuslimCompanion.Droid
 					2130968704,
 					2130968746};
 			
-			// aapt resource value: 0x7F070058
-			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 2131165272;
+			// aapt resource value: 0x7F080058
+			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 2131230808;
 			
 			// aapt resource value: 0x1
 			public const int ActivityChooserView_initialActivityCount = 1;
@@ -8073,8 +8092,8 @@ namespace MuslimCompanion.Droid
 					2130968828,
 					2130968829};
 			
-			// aapt resource value: 0x7F070061
-			public const int AlertDialog_android_layout = 2131165281;
+			// aapt resource value: 0x7F080061
+			public const int AlertDialog_android_layout = 2131230817;
 			
 			// aapt resource value: 0x1
 			public const int AlertDialog_buttonPanelSideLayout = 1;
@@ -8105,14 +8124,14 @@ namespace MuslimCompanion.Droid
 					2130968838,
 					2130968839};
 			
-			// aapt resource value: 0x7F070075
-			public const int AppBarLayoutStates_state_collapsed = 2131165301;
+			// aapt resource value: 0x7F080075
+			public const int AppBarLayoutStates_state_collapsed = 2131230837;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayoutStates_state_collapsible = 1;
 			
-			// aapt resource value: 0x7F070069
-			public const int AppBarLayout_android_background = 2131165289;
+			// aapt resource value: 0x7F080069
+			public const int AppBarLayout_android_background = 2131230825;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayout_android_keyboardNavigationCluster = 1;
@@ -8130,8 +8149,8 @@ namespace MuslimCompanion.Droid
 					2130968765,
 					2130968766};
 			
-			// aapt resource value: 0x7F070078
-			public const int AppBarLayout_Layout_layout_scrollFlags = 2131165304;
+			// aapt resource value: 0x7F080078
+			public const int AppBarLayout_Layout_layout_scrollFlags = 2131230840;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayout_Layout_layout_scrollInterpolator = 1;
@@ -8142,8 +8161,8 @@ namespace MuslimCompanion.Droid
 					2130968889,
 					2130968890};
 			
-			// aapt resource value: 0x7F070081
-			public const int AppCompatImageView_android_src = 2131165313;
+			// aapt resource value: 0x7F080081
+			public const int AppCompatImageView_android_src = 2131230849;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatImageView_srcCompat = 1;
@@ -8160,8 +8179,8 @@ namespace MuslimCompanion.Droid
 					2130968887,
 					2130968888};
 			
-			// aapt resource value: 0x7F070086
-			public const int AppCompatSeekBar_android_thumb = 2131165318;
+			// aapt resource value: 0x7F080086
+			public const int AppCompatSeekBar_android_thumb = 2131230854;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatSeekBar_tickMark = 1;
@@ -8181,8 +8200,8 @@ namespace MuslimCompanion.Droid
 					16843117,
 					16842804};
 			
-			// aapt resource value: 0x7F070091
-			public const int AppCompatTextHelper_android_drawableBottom = 2131165329;
+			// aapt resource value: 0x7F080091
+			public const int AppCompatTextHelper_android_drawableBottom = 2131230865;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTextHelper_android_drawableEnd = 1;
@@ -8212,8 +8231,8 @@ namespace MuslimCompanion.Droid
 					2130968720,
 					2130968869};
 			
-			// aapt resource value: 0x7F070099
-			public const int AppCompatTextView_android_textAppearance = 2131165337;
+			// aapt resource value: 0x7F080099
+			public const int AppCompatTextView_android_textAppearance = 2131230873;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTextView_autoSizeMaxTextSize = 1;
@@ -8357,8 +8376,8 @@ namespace MuslimCompanion.Droid
 					2130968921,
 					2130968922};
 			
-			// aapt resource value: 0x7F070108
-			public const int AppCompatTheme_actionBarDivider = 2131165448;
+			// aapt resource value: 0x7F080108
+			public const int AppCompatTheme_actionBarDivider = 2131230984;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTheme_actionBarItemBackground = 1;
@@ -8721,8 +8740,8 @@ namespace MuslimCompanion.Droid
 					2130968753,
 					2130968783};
 			
-			// aapt resource value: 0x7F070228
-			public const int BottomNavigationView_elevation = 2131165736;
+			// aapt resource value: 0x7F080228
+			public const int BottomNavigationView_elevation = 2131231272;
 			
 			// aapt resource value: 0x1
 			public const int BottomNavigationView_itemBackground = 1;
@@ -8741,8 +8760,8 @@ namespace MuslimCompanion.Droid
 					2130968635,
 					2130968636};
 			
-			// aapt resource value: 0x7F070234
-			public const int BottomSheetBehavior_Layout_behavior_hideable = 2131165748;
+			// aapt resource value: 0x7F080234
+			public const int BottomSheetBehavior_Layout_behavior_hideable = 2131231284;
 			
 			// aapt resource value: 0x1
 			public const int BottomSheetBehavior_Layout_behavior_peekHeight = 1;
@@ -8753,8 +8772,8 @@ namespace MuslimCompanion.Droid
 			public static int[] ButtonBarLayout = new int[] {
 					2130968615};
 			
-			// aapt resource value: 0x7F070238
-			public const int ButtonBarLayout_allowStacking = 2131165752;
+			// aapt resource value: 0x7F080238
+			public const int ButtonBarLayout_allowStacking = 2131231288;
 			
 			public static int[] CardView = new int[] {
 					16843072,
@@ -8771,8 +8790,8 @@ namespace MuslimCompanion.Droid
 					2130968586,
 					2130968587};
 			
-			// aapt resource value: 0x7F070541
-			public const int CardView_android_minHeight = 2131166529;
+			// aapt resource value: 0x7F080541
+			public const int CardView_android_minHeight = 2131232065;
 			
 			// aapt resource value: 0x1
 			public const int CardView_android_minWidth = 1;
@@ -8828,8 +8847,8 @@ namespace MuslimCompanion.Droid
 					2130968892,
 					2130968902};
 			
-			// aapt resource value: 0x7F070240
-			public const int CollapsingToolbarLayout_collapsedTitleGravity = 2131165760;
+			// aapt resource value: 0x7F080240
+			public const int CollapsingToolbarLayout_collapsedTitleGravity = 2131231296;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_collapsedTitleTextAppearance = 1;
@@ -8862,8 +8881,8 @@ namespace MuslimCompanion.Droid
 					2130968760,
 					2130968761};
 			
-			// aapt resource value: 0x7F070257
-			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 2131165783;
+			// aapt resource value: 0x7F080257
+			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 2131231319;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = 1;
@@ -8891,8 +8910,8 @@ namespace MuslimCompanion.Droid
 					16843551,
 					16843173};
 			
-			// aapt resource value: 0x7F070260
-			public const int ColorStateListItem_alpha = 2131165792;
+			// aapt resource value: 0x7F080260
+			public const int ColorStateListItem_alpha = 2131231328;
 			
 			// aapt resource value: 0x1
 			public const int ColorStateListItem_android_alpha = 1;
@@ -8905,8 +8924,8 @@ namespace MuslimCompanion.Droid
 					2130968650,
 					2130968651};
 			
-			// aapt resource value: 0x7F070264
-			public const int CompoundButton_android_button = 2131165796;
+			// aapt resource value: 0x7F080264
+			public const int CompoundButton_android_button = 2131231332;
 			
 			// aapt resource value: 0x1
 			public const int CompoundButton_buttonTint = 1;
@@ -8918,8 +8937,8 @@ namespace MuslimCompanion.Droid
 					2130968754,
 					2130968840};
 			
-			// aapt resource value: 0x7F070268
-			public const int CoordinatorLayout_keylines = 2131165800;
+			// aapt resource value: 0x7F080268
+			public const int CoordinatorLayout_keylines = 2131231336;
 			
 			public static int[] CoordinatorLayout_Layout = new int[] {
 					16842931,
@@ -8930,8 +8949,8 @@ namespace MuslimCompanion.Droid
 					2130968763,
 					2130968764};
 			
-			// aapt resource value: 0x7F070271
-			public const int CoordinatorLayout_Layout_android_layout_gravity = 2131165809;
+			// aapt resource value: 0x7F080271
+			public const int CoordinatorLayout_Layout_android_layout_gravity = 2131231345;
 			
 			// aapt resource value: 0x1
 			public const int CoordinatorLayout_Layout_layout_anchor = 1;
@@ -8959,8 +8978,8 @@ namespace MuslimCompanion.Droid
 					2130968640,
 					2130968879};
 			
-			// aapt resource value: 0x7F070279
-			public const int DesignTheme_bottomSheetDialogTheme = 2131165817;
+			// aapt resource value: 0x7F080279
+			public const int DesignTheme_bottomSheetDialogTheme = 2131231353;
 			
 			// aapt resource value: 0x1
 			public const int DesignTheme_bottomSheetStyle = 1;
@@ -8978,8 +8997,8 @@ namespace MuslimCompanion.Droid
 					2130968831,
 					2130968882};
 			
-			// aapt resource value: 0x7F070283
-			public const int DrawerArrowToggle_arrowHeadLength = 2131165827;
+			// aapt resource value: 0x7F080283
+			public const int DrawerArrowToggle_arrowHeadLength = 2131231363;
 			
 			// aapt resource value: 0x1
 			public const int DrawerArrowToggle_arrowShaftLength = 1;
@@ -9012,8 +9031,8 @@ namespace MuslimCompanion.Droid
 					2130968816,
 					2130968911};
 			
-			// aapt resource value: 0x7F070292
-			public const int FloatingActionButton_backgroundTint = 2131165842;
+			// aapt resource value: 0x7F080292
+			public const int FloatingActionButton_backgroundTint = 2131231378;
 			
 			// aapt resource value: 0x1
 			public const int FloatingActionButton_backgroundTintMode = 1;
@@ -9021,8 +9040,8 @@ namespace MuslimCompanion.Droid
 			public static int[] FloatingActionButton_Behavior_Layout = new int[] {
 					2130968632};
 			
-			// aapt resource value: 0x7F070301
-			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 2131165953;
+			// aapt resource value: 0x7F080301
+			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 2131231489;
 			
 			// aapt resource value: 0x2
 			public const int FloatingActionButton_borderWidth = 2;
@@ -9058,8 +9077,8 @@ namespace MuslimCompanion.Droid
 					2130968584,
 					2130968585};
 			
-			// aapt resource value: 0x7F070010
-			public const int FontFamilyFont_android_font = 2131165200;
+			// aapt resource value: 0x7F080010
+			public const int FontFamilyFont_android_font = 2131230736;
 			
 			// aapt resource value: 0x1
 			public const int FontFamilyFont_android_fontStyle = 1;
@@ -9076,8 +9095,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x5
 			public const int FontFamilyFont_fontWeight = 5;
 			
-			// aapt resource value: 0x7F070003
-			public const int FontFamily_fontProviderAuthority = 2131165187;
+			// aapt resource value: 0x7F080003
+			public const int FontFamily_fontProviderAuthority = 2131230723;
 			
 			// aapt resource value: 0x1
 			public const int FontFamily_fontProviderCerts = 1;
@@ -9099,8 +9118,8 @@ namespace MuslimCompanion.Droid
 					16843264,
 					2130968729};
 			
-			// aapt resource value: 0x7F070303
-			public const int ForegroundLinearLayout_android_foreground = 2131165955;
+			// aapt resource value: 0x7F080303
+			public const int ForegroundLinearLayout_android_foreground = 2131231491;
 			
 			// aapt resource value: 0x1
 			public const int ForegroundLinearLayout_android_foregroundGravity = 1;
@@ -9119,8 +9138,8 @@ namespace MuslimCompanion.Droid
 					2130968782,
 					2130968826};
 			
-			// aapt resource value: 0x7F070307
-			public const int LinearLayoutCompat_android_baselineAligned = 2131165959;
+			// aapt resource value: 0x7F080307
+			public const int LinearLayoutCompat_android_baselineAligned = 2131231495;
 			
 			// aapt resource value: 0x1
 			public const int LinearLayoutCompat_android_baselineAlignedChildIndex = 1;
@@ -9146,8 +9165,8 @@ namespace MuslimCompanion.Droid
 					16843137,
 					16842996};
 			
-			// aapt resource value: 0x7F070317
-			public const int LinearLayoutCompat_Layout_android_layout_gravity = 2131165975;
+			// aapt resource value: 0x7F080317
+			public const int LinearLayoutCompat_Layout_android_layout_gravity = 2131231511;
 			
 			// aapt resource value: 0x1
 			public const int LinearLayoutCompat_Layout_android_layout_height = 1;
@@ -9168,8 +9187,8 @@ namespace MuslimCompanion.Droid
 					16843436,
 					16843437};
 			
-			// aapt resource value: 0x7F070322
-			public const int ListPopupWindow_android_dropDownHorizontalOffset = 2131165986;
+			// aapt resource value: 0x7F080322
+			public const int ListPopupWindow_android_dropDownHorizontalOffset = 2131231522;
 			
 			// aapt resource value: 0x1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
@@ -9180,8 +9199,8 @@ namespace MuslimCompanion.Droid
 					2130968688,
 					2130968732};
 			
-			// aapt resource value: 0x7F070555
-			public const int MediaRouteButton_android_minHeight = 2131166549;
+			// aapt resource value: 0x7F080555
+			public const int MediaRouteButton_android_minHeight = 2131232085;
 			
 			// aapt resource value: 0x1
 			public const int MediaRouteButton_android_minWidth = 1;
@@ -9200,8 +9219,8 @@ namespace MuslimCompanion.Droid
 					16843231,
 					16843156};
 			
-			// aapt resource value: 0x7F070325
-			public const int MenuGroup_android_checkableBehavior = 2131165989;
+			// aapt resource value: 0x7F080325
+			public const int MenuGroup_android_checkableBehavior = 2131231525;
 			
 			// aapt resource value: 0x1
 			public const int MenuGroup_android_enabled = 1;
@@ -9243,8 +9262,8 @@ namespace MuslimCompanion.Droid
 					2130968825,
 					2130968907};
 			
-			// aapt resource value: 0x7F070332
-			public const int MenuItem_actionLayout = 2131166002;
+			// aapt resource value: 0x7F080332
+			public const int MenuItem_actionLayout = 2131231538;
 			
 			// aapt resource value: 0x1
 			public const int MenuItem_actionProviderClass = 1;
@@ -9323,8 +9342,8 @@ namespace MuslimCompanion.Droid
 					2130968805,
 					2130968842};
 			
-			// aapt resource value: 0x7F070356
-			public const int MenuView_android_headerBackground = 2131166038;
+			// aapt resource value: 0x7F080356
+			public const int MenuView_android_headerBackground = 2131231574;
 			
 			// aapt resource value: 0x1
 			public const int MenuView_android_horizontalDivider = 1;
@@ -9362,8 +9381,8 @@ namespace MuslimCompanion.Droid
 					2130968753,
 					2130968783};
 			
-			// aapt resource value: 0x7F070366
-			public const int NavigationView_android_background = 2131166054;
+			// aapt resource value: 0x7F080366
+			public const int NavigationView_android_background = 2131231590;
 			
 			// aapt resource value: 0x1
 			public const int NavigationView_android_fitsSystemWindows = 1;
@@ -9400,11 +9419,11 @@ namespace MuslimCompanion.Droid
 			public static int[] PopupWindowBackgroundState = new int[] {
 					2130968837};
 			
-			// aapt resource value: 0x7F070381
-			public const int PopupWindowBackgroundState_state_above_anchor = 2131166081;
+			// aapt resource value: 0x7F080381
+			public const int PopupWindowBackgroundState_state_above_anchor = 2131231617;
 			
-			// aapt resource value: 0x7F070377
-			public const int PopupWindow_android_popupAnimationStyle = 2131166071;
+			// aapt resource value: 0x7F080377
+			public const int PopupWindow_android_popupAnimationStyle = 2131231607;
 			
 			// aapt resource value: 0x1
 			public const int PopupWindow_android_popupBackground = 1;
@@ -9439,87 +9458,87 @@ namespace MuslimCompanion.Droid
 					0,
 					0};
 			
-			// aapt resource value: 0x7F070560
-			public const int RangeSliderControl_absoluteMaxValue = 2131166560;
+			// aapt resource value: 0x7F080560
+			public const int RangeSliderControl_absoluteMaxValue = 2131232096;
 			
-			// aapt resource value: 0x7F070559
-			public const int RangeSliderControl_absoluteMinValue = 2131166553;
+			// aapt resource value: 0x7F080559
+			public const int RangeSliderControl_absoluteMinValue = 2131232089;
 			
-			// aapt resource value: 0x7F070579
-			public const int RangeSliderControl_activateOnDefaultValues = 2131166585;
+			// aapt resource value: 0x7F080579
+			public const int RangeSliderControl_activateOnDefaultValues = 2131232121;
 			
-			// aapt resource value: 0x7F070569
-			public const int RangeSliderControl_activeColor = 2131166569;
+			// aapt resource value: 0x7F080569
+			public const int RangeSliderControl_activeColor = 2131232105;
 			
-			// aapt resource value: 0x7F070564
-			public const int RangeSliderControl_alwaysActive = 2131166564;
+			// aapt resource value: 0x7F080564
+			public const int RangeSliderControl_alwaysActive = 2131232100;
 			
-			// aapt resource value: 0x7F070567
-			public const int RangeSliderControl_barHeight = 2131166567;
+			// aapt resource value: 0x7F080567
+			public const int RangeSliderControl_barHeight = 2131232103;
 			
-			// aapt resource value: 0x7F070568
-			public const int RangeSliderControl_defaultColor = 2131166568;
+			// aapt resource value: 0x7F080568
+			public const int RangeSliderControl_defaultColor = 2131232104;
 			
-			// aapt resource value: 0x7F070566
-			public const int RangeSliderControl_internalPadding = 2131166566;
+			// aapt resource value: 0x7F080566
+			public const int RangeSliderControl_internalPadding = 2131232102;
 			
-			// aapt resource value: 0x7F070583
-			public const int RangeSliderControl_materialUI = 2131166595;
+			// aapt resource value: 0x7F080583
+			public const int RangeSliderControl_materialUI = 2131232131;
 			
-			// aapt resource value: 0x7F070562
-			public const int RangeSliderControl_maxThumbHidden = 2131166562;
+			// aapt resource value: 0x7F080562
+			public const int RangeSliderControl_maxThumbHidden = 2131232098;
 			
-			// aapt resource value: 0x7F070561
-			public const int RangeSliderControl_minThumbHidden = 2131166561;
+			// aapt resource value: 0x7F080561
+			public const int RangeSliderControl_minThumbHidden = 2131232097;
 			
-			// aapt resource value: 0x7F070563
-			public const int RangeSliderControl_showRangeLabels = 2131166563;
+			// aapt resource value: 0x7F080563
+			public const int RangeSliderControl_showRangeLabels = 2131232099;
 			
-			// aapt resource value: 0x7F070580
-			public const int RangeSliderControl_stepValue = 2131166592;
+			// aapt resource value: 0x7F080580
+			public const int RangeSliderControl_stepValue = 2131232128;
 			
-			// aapt resource value: 0x7F070581
-			public const int RangeSliderControl_stepValueContinuously = 2131166593;
+			// aapt resource value: 0x7F080581
+			public const int RangeSliderControl_stepValueContinuously = 2131232129;
 			
-			// aapt resource value: 0x7F070570
-			public const int RangeSliderControl_textAboveThumbsColor = 2131166576;
+			// aapt resource value: 0x7F080570
+			public const int RangeSliderControl_textAboveThumbsColor = 2131232112;
 			
-			// aapt resource value: 0x7F070582
-			public const int RangeSliderControl_textSize = 2131166594;
+			// aapt resource value: 0x7F080582
+			public const int RangeSliderControl_textSize = 2131232130;
 			
-			// aapt resource value: 0x7F070573
-			public const int RangeSliderControl_thumbDisabled = 2131166579;
+			// aapt resource value: 0x7F080573
+			public const int RangeSliderControl_thumbDisabled = 2131232115;
 			
-			// aapt resource value: 0x7F070571
-			public const int RangeSliderControl_thumbNormal = 2131166577;
+			// aapt resource value: 0x7F080571
+			public const int RangeSliderControl_thumbNormal = 2131232113;
 			
-			// aapt resource value: 0x7F070572
-			public const int RangeSliderControl_thumbPressed = 2131166578;
+			// aapt resource value: 0x7F080572
+			public const int RangeSliderControl_thumbPressed = 2131232114;
 			
-			// aapt resource value: 0x7F070574
-			public const int RangeSliderControl_thumbShadow = 2131166580;
+			// aapt resource value: 0x7F080574
+			public const int RangeSliderControl_thumbShadow = 2131232116;
 			
-			// aapt resource value: 0x7F070578
-			public const int RangeSliderControl_thumbShadowBlur = 2131166584;
+			// aapt resource value: 0x7F080578
+			public const int RangeSliderControl_thumbShadowBlur = 2131232120;
 			
-			// aapt resource value: 0x7F070575
-			public const int RangeSliderControl_thumbShadowColor = 2131166581;
+			// aapt resource value: 0x7F080575
+			public const int RangeSliderControl_thumbShadowColor = 2131232117;
 			
-			// aapt resource value: 0x7F070576
-			public const int RangeSliderControl_thumbShadowXOffset = 2131166582;
+			// aapt resource value: 0x7F080576
+			public const int RangeSliderControl_thumbShadowXOffset = 2131232118;
 			
-			// aapt resource value: 0x7F070577
-			public const int RangeSliderControl_thumbShadowYOffset = 2131166583;
+			// aapt resource value: 0x7F080577
+			public const int RangeSliderControl_thumbShadowYOffset = 2131232119;
 			
-			// aapt resource value: 0x7F070565
-			public const int RangeSliderControl_valuesAboveThumbs = 2131166565;
+			// aapt resource value: 0x7F080565
+			public const int RangeSliderControl_valuesAboveThumbs = 2131232101;
 			
 			public static int[] RecycleListView = new int[] {
 					2130968790,
 					2130968793};
 			
-			// aapt resource value: 0x7F070383
-			public const int RecycleListView_paddingBottomNoButtons = 2131166083;
+			// aapt resource value: 0x7F080383
+			public const int RecycleListView_paddingBottomNoButtons = 2131231619;
 			
 			// aapt resource value: 0x1
 			public const int RecycleListView_paddingTopNoTitle = 1;
@@ -9537,8 +9556,8 @@ namespace MuslimCompanion.Droid
 					2130968830,
 					2130968836};
 			
-			// aapt resource value: 0x7F070386
-			public const int RecyclerView_android_descendantFocusability = 2131166086;
+			// aapt resource value: 0x7F080386
+			public const int RecyclerView_android_descendantFocusability = 2131231622;
 			
 			// aapt resource value: 0x1
 			public const int RecyclerView_android_orientation = 1;
@@ -9573,14 +9592,14 @@ namespace MuslimCompanion.Droid
 			public static int[] ScrimInsetsFrameLayout = new int[] {
 					2130968747};
 			
-			// aapt resource value: 0x7F070398
-			public const int ScrimInsetsFrameLayout_insetForeground = 2131166104;
+			// aapt resource value: 0x7F080398
+			public const int ScrimInsetsFrameLayout_insetForeground = 2131231640;
 			
 			public static int[] ScrollingViewBehavior_Layout = new int[] {
 					2130968634};
 			
-			// aapt resource value: 0x7F070400
-			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 2131166208;
+			// aapt resource value: 0x7F080400
+			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 2131231744;
 			
 			public static int[] SearchView = new int[] {
 					16842970,
@@ -9601,8 +9620,8 @@ namespace MuslimCompanion.Droid
 					2130968848,
 					2130968912};
 			
-			// aapt resource value: 0x7F070402
-			public const int SearchView_android_focusable = 2131166210;
+			// aapt resource value: 0x7F080402
+			public const int SearchView_android_focusable = 2131231746;
 			
 			// aapt resource value: 0x1
 			public const int SearchView_android_imeOptions = 1;
@@ -9657,8 +9676,8 @@ namespace MuslimCompanion.Droid
 					2130968701,
 					2130968780};
 			
-			// aapt resource value: 0x7F070420
-			public const int SnackbarLayout_android_maxWidth = 2131166240;
+			// aapt resource value: 0x7F080420
+			public const int SnackbarLayout_android_maxWidth = 2131231776;
 			
 			// aapt resource value: 0x1
 			public const int SnackbarLayout_elevation = 1;
@@ -9673,8 +9692,8 @@ namespace MuslimCompanion.Droid
 					16843131,
 					2130968803};
 			
-			// aapt resource value: 0x7F070424
-			public const int Spinner_android_dropDownWidth = 2131166244;
+			// aapt resource value: 0x7F080424
+			public const int Spinner_android_dropDownWidth = 2131231780;
 			
 			// aapt resource value: 0x1
 			public const int Spinner_android_entries = 1;
@@ -9704,8 +9723,8 @@ namespace MuslimCompanion.Droid
 					2130968909,
 					2130968910};
 			
-			// aapt resource value: 0x7F070430
-			public const int SwitchCompat_android_textOff = 2131166256;
+			// aapt resource value: 0x7F080430
+			public const int SwitchCompat_android_textOff = 2131231792;
 			
 			// aapt resource value: 0x1
 			public const int SwitchCompat_android_textOn = 1;
@@ -9751,8 +9770,8 @@ namespace MuslimCompanion.Droid
 					16842994,
 					16843087};
 			
-			// aapt resource value: 0x7F070445
-			public const int TabItem_android_icon = 2131166277;
+			// aapt resource value: 0x7F080445
+			public const int TabItem_android_icon = 2131231813;
 			
 			// aapt resource value: 0x1
 			public const int TabItem_android_layout = 1;
@@ -9778,8 +9797,8 @@ namespace MuslimCompanion.Droid
 					2130968867,
 					2130968868};
 			
-			// aapt resource value: 0x7F070449
-			public const int TabLayout_tabBackground = 2131166281;
+			// aapt resource value: 0x7F080449
+			public const int TabLayout_tabBackground = 2131231817;
 			
 			// aapt resource value: 0x1
 			public const int TabLayout_tabContentStart = 1;
@@ -9841,8 +9860,8 @@ namespace MuslimCompanion.Droid
 					2130968720,
 					2130968869};
 			
-			// aapt resource value: 0x7F070466
-			public const int TextAppearance_android_fontFamily = 2131166310;
+			// aapt resource value: 0x7F080466
+			public const int TextAppearance_android_fontFamily = 2131231846;
 			
 			// aapt resource value: 0x1
 			public const int TextAppearance_android_shadowColor = 1;
@@ -9898,8 +9917,8 @@ namespace MuslimCompanion.Droid
 					2130968800,
 					2130968801};
 			
-			// aapt resource value: 0x7F070480
-			public const int TextInputLayout_android_hint = 2131166336;
+			// aapt resource value: 0x7F080480
+			public const int TextInputLayout_android_hint = 2131231872;
 			
 			// aapt resource value: 0x1
 			public const int TextInputLayout_android_textColorHint = 1;
@@ -9977,8 +9996,8 @@ namespace MuslimCompanion.Droid
 					2130968899,
 					2130968900};
 			
-			// aapt resource value: 0x7F070497
-			public const int Toolbar_android_gravity = 2131166359;
+			// aapt resource value: 0x7F080497
+			public const int Toolbar_android_gravity = 2131231895;
 			
 			// aapt resource value: 0x1
 			public const int Toolbar_android_minHeight = 1;
@@ -10076,8 +10095,8 @@ namespace MuslimCompanion.Droid
 					2130968629,
 					2130968630};
 			
-			// aapt resource value: 0x7F070533
-			public const int ViewBackgroundHelper_android_background = 2131166515;
+			// aapt resource value: 0x7F080533
+			public const int ViewBackgroundHelper_android_background = 2131232051;
 			
 			// aapt resource value: 0x1
 			public const int ViewBackgroundHelper_backgroundTint = 1;
@@ -10090,8 +10109,8 @@ namespace MuslimCompanion.Droid
 					16842995,
 					16842994};
 			
-			// aapt resource value: 0x7F070537
-			public const int ViewStubCompat_android_id = 2131166519;
+			// aapt resource value: 0x7F080537
+			public const int ViewStubCompat_android_id = 2131232055;
 			
 			// aapt resource value: 0x1
 			public const int ViewStubCompat_android_inflatedId = 1;
@@ -10099,8 +10118,8 @@ namespace MuslimCompanion.Droid
 			// aapt resource value: 0x2
 			public const int ViewStubCompat_android_layout = 2;
 			
-			// aapt resource value: 0x7F070527
-			public const int View_android_focusable = 2131166503;
+			// aapt resource value: 0x7F080527
+			public const int View_android_focusable = 2131232039;
 			
 			// aapt resource value: 0x1
 			public const int View_android_theme = 1;

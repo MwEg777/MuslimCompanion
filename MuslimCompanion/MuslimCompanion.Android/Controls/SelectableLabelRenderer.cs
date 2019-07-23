@@ -32,12 +32,12 @@ namespace MuslimCompanion.Droid.Controls
 {
     public class SelectableLabelRenderer : EditorRenderer, ISelectableLabel
     {
-        //public SelectableLabelRenderer(Context context) : base(context)
-        //{
+        public SelectableLabelRenderer(Context context) : base(context)
+        {
 
-        //    GlobalVar.Set("activeControl", null);
+            GlobalVar.Set("activeControl", null);
 
-        //}
+        }
 
         public async void SelectPartOfText(int startIndex, int endIndex)
         {
@@ -153,7 +153,7 @@ namespace MuslimCompanion.Droid.Controls
 
             public async void OnDestroyActionMode(ActionMode mode) {
 
-                await Task.Delay(100);
+                await Task.Delay(100); //This delay is to prevent options from disappearing, because when an option is pressed, text is deselected thus options disappear.
 
                 MessagingService.Current.SendMessage("AyahDeselected");
 
@@ -175,6 +175,7 @@ namespace MuslimCompanion.Droid.Controls
                 catch
                 {
                     // ignored
+                    Console.WriteLine("Problem happened while preparing actions");
                 }
 
                 return true;

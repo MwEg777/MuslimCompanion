@@ -1,4 +1,8 @@
-﻿using MuslimCompanion.Controls;
+﻿using Matcha.BackgroundService;
+using MuslimCompanion.Controls;
+using MuslimCompanion.Model;
+using Plugin.Geolocator;
+using Plugin.Geolocator.Abstractions;
 using Plugin.LocalNotifications;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
@@ -12,7 +16,12 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
+using System.Linq;
+using MuslimCompanion.Services;
+using System.Net.Http;
+using static MuslimCompanion.Model.PrayerTimeResponseModel;
+using Newtonsoft.Json;
+using FormsToolkit;
 
 namespace MuslimCompanion.Core
 {
@@ -54,14 +63,11 @@ namespace MuslimCompanion.Core
 
         }
 
-
-        
-
         public static IDownloader downloader;
 
         public static SQLiteConnection conn;
 
-        
+        public static List<string> azanPaths;
 
         public static async void InitConnection()
         {
@@ -97,9 +103,142 @@ namespace MuslimCompanion.Core
                 //await DisplayAlert("Exception happened.", ex.Message.ToString(), "OK");
             }
 
-            
+
+            ProcessPrayerTimes();
+
+            }
+
+        public static async void ProcessPrayerTimes() //Handles prayer times from A to Z. From fetching from server, Till updating database and scheduling.
+        {
+
+            //Before proceeding, Wait for user location, and Fetch from server first!
+
+            //Waiting for user location :
+
+            while (muslimPosition == null)
+                await Task.Delay(100);
+
+            //Prepare a URL for API request
+            string url = GeneralManager.GeneratePrayerAPIRequest();
+
+            HttpClient _client = new HttpClient();
+
+            var uri = new Uri(url);
+
+            var response = await _client.GetAsync(uri);
+
+            AzanBackgroundService abs = new AzanBackgroundService();
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var content = await response.Content.ReadAsStringAsync();
+                RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(content);
+                GlobalVar.Set("prayersresponse", rootObject);
+                //List<Tuple<DateTime, string>> monthPrayerTimes = abs.GetNextPrayersList(50);
+
+            }
+
+            else
+                return;
+
+            //First, Fetch next X prayers into a list
+
+            int X = 50;
+
+            List<Tuple<DateTime, string>> prayerTimes = abs.GetNextPrayersList(X);
+
+            //Second, refresh and validate database. Remove old entries. Remove fired entries. 
+
+            ValidateDatabasePrayerTimes();
+
+            //Third, check how many missing entries there are in the database.
+
+            List<Prayers> prayertimes = conn.Table<Prayers>().ToList();
+
+            int missingElementsCount = X - prayertimes.Count;
+
+            //Forth, Make a for loop for all missing entries, and fill them with the next entries.
+
+            for (int i = 0; i < missingElementsCount; i++)
+            {
+
+                if (X - missingElementsCount + i >= prayerTimes.Count)
+                    break;
+
+                conn.Execute("INSERT INTO prayers (prayertype, firetime, scheduledtofire, fired) VALUES (?, ?, 0, 0)", prayerTimes[X - missingElementsCount + i].Item2, prayerTimes[X - missingElementsCount + i].Item1);
+                conn.Commit();
+
+            }
+
+            //Fifth, Validate database again.
+
+            ValidateDatabasePrayerTimes();
+
+            //Sixth, Schedule unscheduled alarms.
+
+            prayertimes = conn.Table<Prayers>().ToList();
+
+            for (int i=0; i < prayertimes.Count; i++)
+            {
+
+                if (prayertimes[i].ScheduledToFire == 0)
+                {
+
+                    //Schedule alarm for this prayer time.
+
+                    Dictionary<string, int> prayerTypeToInt = new Dictionary<string, int>() { ["Fajr"] = 1, ["Dhuhr"] = 2, ["Asr"] = 3, ["Maghrib"] = 4, ["Isha"] = 5 };
+
+                    MessagingService.Current.SendMessage("ScheduleAzan", new Tuple<DateTime, int>(prayertimes[i].FireTime, prayerTypeToInt[prayertimes[i].PrayerType]));
+
+                    //Mark as scheduled in database
+                    conn.Execute("UPDATE prayers SET scheduledtofire = 1 WHERE firetime = ?", prayertimes[i].FireTime);
+                    conn.Commit();
+
+                }
+
+            }
+
 
         }
+
+        public static void ValidateDatabasePrayerTimes() //Remove fired or passed elements from database.
+        {
+
+            List<Prayers> prayertimes = conn.Table<Prayers>().ToList();
+
+            foreach (Prayers pr in prayertimes)
+            {
+
+                if (pr.Fired == 1 || PrayerTimePassed(pr.FireTime))
+                    conn.Execute("DELETE FROM prayers WHERE firetime = ?", pr.FireTime);
+
+                conn.Commit();
+
+            }
+
+        }
+
+        public static bool PrayerTimePassed(DateTime prayerTime)
+        {
+
+            if ((prayerTime - DateTime.Now).TotalMilliseconds >= 0)
+                return false;
+            else
+                return true;
+
+        } //A bool that checks if a certain prayer time passed or not
+
+        public static void PrayerNotificationPressed()
+        {
+
+            /*List<Prayers> prayertimes = conn.Table<Prayers>().ToList();
+
+            conn.Execute("DELETE FROM prayers WHERE id = (SELECT MIN(id) FROM prayers)");
+
+            conn.Commit();*/
+
+        } //Callback for prayer notification click
 
         public static void OnFileDownloaded(object sender, DownloadEventArgs e)
         {
@@ -125,7 +264,6 @@ namespace MuslimCompanion.Core
         {
             downloader.DownloadFile(url, "MuslimCompanion/" + folderName);
         }
-
 
         static int numberOfFilesToDownload = 0, numberOfFilesDownloaded = 0;
 
@@ -255,7 +393,91 @@ namespace MuslimCompanion.Core
 
         }
 
+        #region Geolocator
 
+        public static IGeolocator locator;
 
+        public static Position muslimPosition; //Variable that holds coordinates of user
+
+        public static async Task<bool> UpdateLocation()
+        {
+
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
+                    {
+                        //await DisplayAlert("Need storage permission", "Gunna need that permission", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Location))
+                        status = results[Permission.Location];
+                }
+                else if (status == PermissionStatus.Granted)
+                {
+                    //await DisplayAlert("No need for permission", "Permission is already granted. Will start downloading sura!", "OK");
+                    
+
+                    //TODO : Update location.
+
+                }
+
+                if (status != PermissionStatus.Granted)
+                {
+                    //await DisplayAlert("Stogage Granted", "Got access successfully! Will download sura now.", "OK");
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //await DisplayAlert("Exception happened.", ex.Message.ToString(), "OK");
+                return false;
+            }
+
+            locator = CrossGeolocator.Current;
+
+            locator.DesiredAccuracy = 50;
+
+            muslimPosition = await locator.GetPositionAsync(timeout: TimeSpan.FromSeconds(30));
+
+            return true;
+
+        }
+
+        #endregion
+
+        public static string GeneratePrayerAPIRequest()
+        {
+
+            //Initialize string base
+
+            string baseString = "https://api.aladhan.com/v1/calendar?";
+
+            string finalString = baseString;
+
+            //Add latitude
+
+            finalString += "latitude=" + muslimPosition.Latitude + "&";
+
+            //Add longitude
+
+            finalString += "longitude=" + muslimPosition.Longitude + "&";
+
+            //Add month
+
+            finalString += "month=" + DateTime.Now.Month + "&";
+
+            //Add year
+
+            finalString += "year=" + DateTime.Now.Year + "&";
+
+            return finalString;
+
+        }
     }
 }

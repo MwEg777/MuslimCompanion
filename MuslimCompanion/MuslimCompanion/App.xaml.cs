@@ -3,6 +3,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
 using MuslimCompanion.Core;
+using Matcha.BackgroundService;
+using static MuslimCompanion.Core.GeneralManager;
+using MuslimCompanion.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MuslimCompanion
@@ -38,7 +41,12 @@ namespace MuslimCompanion
         protected override void OnStart()
         {
             // Handle when your app starts
+            //Register Periodic Tasks
+            //BackgroundAggregatorService.Add(() => new AzanBackgroundService());
+            BackgroundAggregatorService.Add(() => new LocatorBackgroundService());
 
+            //Start the background service
+            BackgroundAggregatorService.StartBackgroundService();
         }
 
         protected override void OnSleep()

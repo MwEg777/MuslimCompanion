@@ -180,7 +180,34 @@ namespace MuslimCompanion
             FavoriteAyahToolbarItem = new ToolbarItem("أضف إلى الآيات المفضلة", "baseline_favorite_white_24.png", () =>
             {
 
+                string FavStateAyah = "إضافة إلى المفضلة";
 
+                if (AppSettings.Contains("favayah" + selectedAyahNumber.ToString()))
+                {
+
+                    if (AppSettings.GetValueOrDefault("favayah" + loadedSura.ToString(), "إضافة إلى المفضلة") == "إضافة إلى المفضلة")
+                    {
+
+                        FavStateAyah = "حذف من المفضلة"; //TODO : ICON is filled heart now
+                        AppSettings.AddOrUpdateValue("favayah" + selectedAyahNumber.ToString(), FavStateAyah);
+
+                    }
+                    else
+                    {
+
+                        FavStateAyah = "إضافة إلى المفضلة"; //TODO : ICON is empty heart now
+                        AppSettings.AddOrUpdateValue("favayah" + selectedAyahNumber.ToString(), FavStateAyah);
+
+                    }
+                }
+
+                else
+                {
+
+                    FavStateAyah = "حذف من المفضلة"; //TODO : ICON is filled heart now
+                    AppSettings.AddOrUpdateValue("favayah" + selectedAyahNumber.ToString(), FavStateAyah);
+
+                }
 
             });
 
