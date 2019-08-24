@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuslimCompanion.AzanPage"
+             Title="الآذان">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="Center">مواعيد الخمس صلوات القادمة</Label>
+            <Label HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" FontSize="Large" VerticalOptions="Start">الموعد</Label>
+            <Label HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="2" FontSize="Large" VerticalOptions="Start">الصلاة</Label>
+            <Label x:Name="Value1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1" FontSize="Medium" VerticalOptions="Start">...</Label>
+            <Label x:Name="Value2" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1" FontSize="Medium" VerticalOptions="Start">...</Label>
+            <Label x:Name="Value3" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1" FontSize="Medium" VerticalOptions="Start">...</Label>
+            <Label x:Name="Value4" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="1" FontSize="Medium" VerticalOptions="Start">...</Label>
+            <Label x:Name="Value5" HorizontalOptions="CenterAndExpand" Grid.Row="6" Grid.Column="1" FontSize="Medium" VerticalOptions="Start">...</Label>
+            <Label x:Name="Name1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="2" FontSize="Medium" VerticalOptions="Start">جاري التحميل</Label>
+            <Label x:Name="Name2" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="2" FontSize="Medium" VerticalOptions="Start">جاري التحميل</Label>
+            <Label x:Name="Name3" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="2" FontSize="Medium" VerticalOptions="Start">جاري التحميل</Label>
+            <Label x:Name="Name4" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="2" FontSize="Medium" VerticalOptions="Start">جاري التحميل</Label>
+            <Label x:Name="Name5" HorizontalOptions="CenterAndExpand" Grid.Row="6" Grid.Column="2" FontSize="Medium" VerticalOptions="Start">جاري التحميل</Label>
+
+            <Switch x:Name="NotificationToggle" Toggled="NotificationToggle_Toggled" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></Switch>
+            
+            <Label Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" FontSize="Medium">إشعارات بمواعيد الصلاة</Label>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

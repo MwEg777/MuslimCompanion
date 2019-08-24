@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuslimCompanion.BasePage"
+             Title="Muslim Companion">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <ImageButton Clicked="QuranButton_Clicked" Source="quraniconwhite.png" BackgroundColor="#2692d6" x:Name="QuranButton" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="100" />
+            <ImageButton Clicked="AzanButton_Clicked" Source="azaniconwhite.png" BackgroundColor="#2692d6" x:Name="AzanButton" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="100"/>
+            <Label Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="Large" HorizontalOptions="Center">القرآن</Label>
+            <Label Grid.Row="2" Grid.Column="4" TextColor="Black" FontSize="Large" HorizontalOptions="Center">الآذان</Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

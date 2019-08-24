@@ -69,8 +69,13 @@ namespace MuslimCompanion.Core
 
         public static List<string> azanPaths;
 
+        public static List<Prayers> prayertimes;
+
         public static async void InitConnection()
         {
+
+            if (!Application.Current.Properties.ContainsKey("azannotification"))
+                Application.Current.Properties.Add("azannotification", AppSettings.GetValueOrDefault("azannotification", false));
 
             while (App.DatabaseLocation == null)
             {
@@ -106,7 +111,7 @@ namespace MuslimCompanion.Core
 
             ProcessPrayerTimes();
 
-            }
+        }
 
         public static async void ProcessPrayerTimes() //Handles prayer times from A to Z. From fetching from server, Till updating database and scheduling.
         {
@@ -127,8 +132,6 @@ namespace MuslimCompanion.Core
 
             var response = await _client.GetAsync(uri);
 
-            AzanBackgroundService abs = new AzanBackgroundService();
-
             if (response.IsSuccessStatusCode)
             {
 
@@ -146,7 +149,7 @@ namespace MuslimCompanion.Core
 
             int X = 50;
 
-            List<Tuple<DateTime, string>> prayerTimes = abs.GetNextPrayersList(X);
+            List<Tuple<DateTime, string>> prayerTimes = AzanBackgroundService.GetNextPrayersList(X);
 
             //Second, refresh and validate database. Remove old entries. Remove fired entries. 
 
@@ -154,7 +157,7 @@ namespace MuslimCompanion.Core
 
             //Third, check how many missing entries there are in the database.
 
-            List<Prayers> prayertimes = conn.Table<Prayers>().ToList();
+            prayertimes = conn.Table<Prayers>().ToList();
 
             int missingElementsCount = X - prayertimes.Count;
 

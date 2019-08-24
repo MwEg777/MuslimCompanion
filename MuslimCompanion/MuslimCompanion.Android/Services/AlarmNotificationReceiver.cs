@@ -12,6 +12,7 @@ using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using MuslimCompanion.Core;
+using Xamarin.Forms;
 
 namespace MuslimCompanion.Droid.Services
 {
@@ -20,13 +21,12 @@ namespace MuslimCompanion.Droid.Services
     class AlarmNotificationReceiver : BroadcastReceiver
     {
 
-
-
         public const string URGENT_CHANNEL = "com.xamarin.myapp.urgent";
         public const int NOTIFY_ID = 1100;
 
         public override void OnReceive(Context context, Intent intent)
         {
+
 
             int mode = intent.GetIntExtra("MODE", 0);
 
@@ -40,6 +40,12 @@ namespace MuslimCompanion.Droid.Services
 
             else if (azanModes.Contains(mode))
             {
+
+                if (Xamarin.Forms.Application.Current.Properties.ContainsKey("azannotification"))
+                { 
+                    if (!(bool)Xamarin.Forms.Application.Current.Properties["azannotification"])
+                        return;
+                }
 
                 string AzanNotificationTitle = "", AzanNotificationText = "اضغط هنا لإيقاف الآذان", AzanNotificationInfo = "";
 
@@ -85,7 +91,7 @@ namespace MuslimCompanion.Droid.Services
                 //switch(AppSettings)
 
                 // Create the uri for the alarm file                 
-                Android.Net.Uri alarmuri = Android.Net.Uri.Parse("android.resource://" + Application.Context.PackageName + "/raw/" + azanVoice);
+                Android.Net.Uri alarmuri = Android.Net.Uri.Parse("android.resource://" + Android.App.Application.Context.PackageName + "/raw/" + azanVoice);
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 

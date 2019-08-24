@@ -20,5 +20,5 @@ AndroidCreatePackagePerAbi=
 OS=Windows_NT
 DesignTimeBuild=
 AndroidIncludeDebugSymbols=True
-AdbTarget=-s 169.254.76.233:5555
+AdbTarget=-s b3ad3b7
 AdbOptions=

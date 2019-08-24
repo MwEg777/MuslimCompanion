@@ -34,7 +34,7 @@ namespace MuslimCompanion
             if (GeneralManager.conn == null)
                 GeneralManager.InitConnection();
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new BasePage());
 
         }
 

@@ -15,7 +15,7 @@ using static MuslimCompanion.Model.PrayerTimeResponseModel;
 namespace MuslimCompanion.Services
 {
 
-    public class AzanBackgroundService
+    public static class AzanBackgroundService
     {
 
         //public List<DateTime> GetPrayerTimesList()
@@ -53,7 +53,7 @@ namespace MuslimCompanion.Services
 
         //}
 
-        public List<Tuple<DateTime, string>> GetNextPrayersList(int prayerCount = 50)
+        public static List<Tuple<DateTime, string>> GetNextPrayersList(int prayerCount = 50)
         {
 
             RootObject rootObject = GlobalVar.Get<RootObject>("prayersresponse");
@@ -154,13 +154,13 @@ namespace MuslimCompanion.Services
 
         }
 
-        public bool jsonIsParsed { get; set; }
+        public static bool jsonIsParsed { get; set; }
 
-        public string url { get; set; }
+        public static string url { get; set; }
 
         //public RootObject rootObject;
 
-        public List<DateTime> todayPrayerTimes;
+        public static List<DateTime> todayPrayerTimes;
 
         //public async Task<bool> StartJob()
         //{

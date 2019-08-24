@@ -208,4 +208,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\Azan-Abdulbasit.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\azanicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quranicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\azaniconwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quraniconwhite.png" />
+  </ItemGroup>
 </Project>
