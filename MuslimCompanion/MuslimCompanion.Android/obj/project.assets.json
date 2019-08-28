@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "MonoAndroid,Version=v8.1": {
+    "MonoAndroid,Version=v9.0": {
       "FormsToolkit/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -2786,7 +2786,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "MonoAndroid,Version=v8.1": [
+    "MonoAndroid,Version=v9.0": [
       "FormsToolkit >= 2.0.1",
       "Matcha.BackgroundService >= 1.0.5478",
       "MuslimCompanion >= 1.0.0",
@@ -2825,14 +2825,14 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "monoandroid81"
+        "monoandroid90"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "monoandroid81": {
+        "monoandroid90": {
           "projectReferences": {
             "D:\\XamarinProjects\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion.csproj": {
               "projectPath": "D:\\XamarinProjects\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion\\MuslimCompanion.csproj"
@@ -2842,7 +2842,7 @@
       }
     },
     "frameworks": {
-      "monoandroid81": {
+      "monoandroid90": {
         "dependencies": {
           "FormsToolkit": {
             "target": "Package",
