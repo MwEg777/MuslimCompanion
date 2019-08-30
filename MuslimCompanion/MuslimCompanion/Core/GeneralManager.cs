@@ -148,6 +148,7 @@ namespace MuslimCompanion.Core
                 RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(content);
                 GlobalVar.Set("prayersresponse", rootObject);
                 //List<Tuple<DateTime, string>> monthPrayerTimes = abs.GetNextPrayersList(50);
+                Console.WriteLine(rootObject.data.Count.ToString());
 
             }
 

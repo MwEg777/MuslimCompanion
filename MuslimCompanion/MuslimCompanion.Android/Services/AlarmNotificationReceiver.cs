@@ -42,8 +42,9 @@ namespace MuslimCompanion.Droid.Services
             {
 
                 if (Xamarin.Forms.Application.Current.Properties.ContainsKey("azannotification"))
-                { 
-                    if (!(bool)Xamarin.Forms.Application.Current.Properties["azannotification"])
+                {
+                    bool key = (bool)Xamarin.Forms.Application.Current.Properties["azannotification"];
+                    if (!key)
                         return;
                 }
 

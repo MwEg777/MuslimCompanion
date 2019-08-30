@@ -56,7 +56,7 @@ namespace MuslimCompanion.Droid
 
             });
 
-            //ScheduleWakeup(DateTime.Now.AddSeconds(3), 1);
+            //ScheduleWakeup(DateTime.Now.AddSeconds(10), 1);
 
         }
 

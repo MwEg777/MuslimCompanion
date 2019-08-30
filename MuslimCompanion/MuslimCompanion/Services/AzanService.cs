@@ -73,7 +73,7 @@ namespace MuslimCompanion.Services
 
                 //Adding the time string of the 5 prayers of one day to the prayerStringsToLoopOn list of strings
 
-                if (rootObject.data.Count <= (DateTime.Now.Day + i)) //If all remaining days are fetched
+                if (rootObject.data.Count < (DateTime.Now.Day + i)) //If all remaining days are fetched
                     continue;
 
                 prayerStringsToLoopOn.Add(rootObject.data[DateTime.Now.Day - 1+ i].timings.Fajr);
