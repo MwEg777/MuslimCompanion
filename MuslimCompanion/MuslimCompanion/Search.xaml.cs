@@ -90,8 +90,6 @@ namespace MuslimCompanion
 
             }
 
-            
-
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)

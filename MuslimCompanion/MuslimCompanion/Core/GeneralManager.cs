@@ -71,11 +71,16 @@ namespace MuslimCompanion.Core
 
         public static List<Prayers> prayertimes;
 
+        public static List<cities> cities;
+
         public static async void InitConnection()
         {
 
             if (!Application.Current.Properties.ContainsKey("azannotification"))
                 Application.Current.Properties.Add("azannotification", AppSettings.GetValueOrDefault("azannotification", false));
+
+            if (!Application.Current.Properties.ContainsKey("cityname"))
+                Application.Current.Properties.Add("cityname", AppSettings.GetValueOrDefault("cityname", "موقعك"));
 
             while (App.DatabaseLocation == null)
             {
@@ -108,13 +113,17 @@ namespace MuslimCompanion.Core
                 //await DisplayAlert("Exception happened.", ex.Message.ToString(), "OK");
             }
 
-
             ProcessPrayerTimes();
+
+            cities = conn.Table<cities>().ToList();
 
         }
 
-        public static async void ProcessPrayerTimes() //Handles prayer times from A to Z. From fetching from server, Till updating database and scheduling.
+        public static async void ProcessPrayerTimes(int mode = 0) //Handles prayer times from A to Z. From fetching from server, Till updating database and scheduling.
         {
+
+            //Reset prayertimes to null. Useful for showing a Loading text in Azan page.
+            prayertimes = null;
 
             //Before proceeding, Wait for user location, and Fetch from server first!
 
@@ -153,7 +162,7 @@ namespace MuslimCompanion.Core
 
             //Second, refresh and validate database. Remove old entries. Remove fired entries. 
 
-            ValidateDatabasePrayerTimes();
+            ValidateDatabasePrayerTimes(mode);
 
             //Third, check how many missing entries there are in the database.
 
@@ -205,7 +214,7 @@ namespace MuslimCompanion.Core
 
         }
 
-        public static void ValidateDatabasePrayerTimes() //Remove fired or passed elements from database.
+        public static void ValidateDatabasePrayerTimes(int mode = 0) //Remove fired or passed elements from database.
         {
 
             List<Prayers> prayertimes = conn.Table<Prayers>().ToList();
@@ -213,7 +222,7 @@ namespace MuslimCompanion.Core
             foreach (Prayers pr in prayertimes)
             {
 
-                if (pr.Fired == 1 || PrayerTimePassed(pr.FireTime))
+                if ((pr.Fired == 1 || PrayerTimePassed(pr.FireTime) ) || mode == 1)
                     conn.Execute("DELETE FROM prayers WHERE firetime = ?", pr.FireTime);
 
                 conn.Commit();
@@ -465,11 +474,13 @@ namespace MuslimCompanion.Core
 
             //Add latitude
 
-            finalString += "latitude=" + muslimPosition.Latitude + "&";
+            //finalString += "latitude=" + muslimPosition.Latitude + "&";
+            finalString += "latitude=" + (GlobalVar.Get<float>("latitude", 0) == 0? muslimPosition.Latitude : GlobalVar.Get<float>("latitude", 0)) + "&";
 
             //Add longitude
 
-            finalString += "longitude=" + muslimPosition.Longitude + "&";
+            //finalString += "longitude=" + muslimPosition.Longitude + "&";
+            finalString += "longitude=" + (GlobalVar.Get<float>("longitude", 0) == 0 ? muslimPosition.Latitude : GlobalVar.Get<float>("longitude", 0)) + "&";
 
             //Add month
 

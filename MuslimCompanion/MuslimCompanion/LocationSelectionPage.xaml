@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuslimCompanion.LocationSelectionPage"
+             Title="اختيار التوقيت">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0" FontSize="Large" Text="موقعك"></Button>
+
+            <Label HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" FontSize="Large" VerticalOptions="Center">أو</Label>
+
+            <Entry TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="1" FontSize="Medium" VerticalOptions="Center" Placeholder="أدخل إسم مدينة"></Entry>
+
+            <ListView Grid.Row="3" Grid.Column="1" x:Name="ResultView"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -13,9 +13,12 @@ using Plugin.Settings;
 
 namespace MuslimCompanion
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
 	public partial class AzanPage : ContentPage
 	{
+
+        public static AzanPage instance;
 
         public static ISettings AppSettings =>
     CrossSettings.Current;
@@ -23,7 +26,9 @@ namespace MuslimCompanion
         public AzanPage ()
 		{
 
-			InitializeComponent();
+            instance = this;
+
+            InitializeComponent();
             PrayerTimeChecker();
             if (Application.Current.Properties.ContainsKey("azannotification"))
                 NotificationToggle.IsToggled = (bool)Application.Current.Properties["azannotification"];
@@ -31,6 +36,21 @@ namespace MuslimCompanion
                 Application.Current.Properties.Add("azannotification", AppSettings.GetValueOrDefault("azannotification", false));
 
             NotificationToggle.IsToggled = AppSettings.GetValueOrDefault("azannotification", false);
+
+            UpdateLocationText();
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                OnModifyWordClicked();
+            };
+            ModifyWord.GestureRecognizers.Add(tapGestureRecognizer);
+
+        }
+
+        void OnModifyWordClicked()
+        {
+
+            Navigation.PushAsync(new LocationSelectionPage());
 
         }
 
@@ -64,6 +84,19 @@ namespace MuslimCompanion
                         UpdatePrayerTimesUI();
 
                     }
+                    else
+                    {
+
+                        ResetToLoading();
+
+                    }
+
+                }
+
+                else
+                {
+
+                    ResetToLoading();
 
                 }
 
@@ -74,7 +107,7 @@ namespace MuslimCompanion
 
         }
 
-        void UpdatePrayerTimesUI()
+        public void UpdatePrayerTimesUI()
         {
 
             Value1.Text = GeneralManager.prayertimes[0].FireTime.ToShortTimeString();
@@ -87,6 +120,29 @@ namespace MuslimCompanion
             Name3.Text = ConvertPrayerNameToArabic(GeneralManager.prayertimes[2].PrayerType);
             Name4.Text = ConvertPrayerNameToArabic(GeneralManager.prayertimes[3].PrayerType);
             Name5.Text = ConvertPrayerNameToArabic(GeneralManager.prayertimes[4].PrayerType);
+
+        }
+
+        public void ResetToLoading()
+        {
+
+            Value1.Text = "...";
+            Value2.Text = "...";
+            Value3.Text = "...";
+            Value4.Text = "...";
+            Value5.Text = "...";
+            Name1.Text = "جاري التحميل";
+            Name2.Text = "جاري التحميل";
+            Name3.Text = "جاري التحميل";
+            Name4.Text = "جاري التحميل";
+            Name5.Text = "جاري التحميل";
+
+        }
+
+        public void UpdateLocationText()
+        {
+
+            MainLabel.Text = "بتوقيت: " + Application.Current.Properties["cityname"];
 
         }
 
