@@ -30,5 +30,13 @@ namespace MuslimCompanion
             Navigation.PushAsync(new AzanPage());
 
         }
+
+        private void QiblaButton_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new QiblaPage());
+
+        }
+
     }
 }

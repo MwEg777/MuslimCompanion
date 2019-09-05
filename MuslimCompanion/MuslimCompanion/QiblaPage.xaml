@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuslimCompanion.QiblaPage"
+             Title="القبلة">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label HorizontalTextAlignment="Center" VerticalOptions="End" x:Name="directionWord" Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="Large" HorizontalOptions="Center">اتجاه القبلة</Label>
+            <Image Grid.Row="1" Grid.Column="1" Source="compass.png" x:Name="compassImage"></Image>
+            <Image Grid.Row="1" Grid.Column="1" Source="needle.png" x:Name="needleImage"></Image>
+            <Label HorizontalTextAlignment="Center" x:Name="distanceLabel" Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="Large" HorizontalOptions="Center"></Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

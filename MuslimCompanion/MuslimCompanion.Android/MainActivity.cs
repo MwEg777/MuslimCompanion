@@ -35,6 +35,8 @@ namespace MuslimCompanion.Droid
 
             Toolkit.Init();
 
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             string dbPath = FileAccessHelper.GetLocalFilePath("muslimcompanion.db");
 
             List<string> azanPaths = new List<string>(new string[] { "Azan_Abdulbasit.mp3" });
@@ -63,6 +65,7 @@ namespace MuslimCompanion.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
